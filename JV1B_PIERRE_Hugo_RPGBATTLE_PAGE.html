@@ -11,9 +11,9 @@
             <div class="boiteaboite">
                  <div class= "Personnage" id="Didier">Didier</div>
                 <div class="boitePerso" id="boiteDidider">
-                    <div id="atkDidier">Attaquer</div>
+                    <button onclick="atkDidier()">Attaquer</button>
                     <div id="defDidier">Défendre</div>
-                    <div id="magDidier">Magie</div>
+                    <button onclick="magieDidier()">Magie</button>
                     <div id="pvDidierTXT">Vie de Didier:</div>
                     <div id="pvDidier">100</div>
                 </div>
@@ -73,12 +73,10 @@
             </div>
 
             <div class="boiteaboite">
-                <div class="mon" id="Poulpe">Poulpor le monstre
+                <div class="mon" id="Crabe">Crabox le monstre
                     <span class="boiteMon" id="boitePoulpe">
-                        <div id="pvPoulpeTXT">Vie de Poulpor:</div>
-                        <div class="pvPoulpe" data-total="100" data-value="100">
-                            <div class="hit"></div>
-                      </div>
+                        <div id="pvPoulpeTXT">Vie de Crabox:</div>
+                        <progress id="pvCrabe" value="100" max="100"></progress>
                     </span>
                 </div>    
             </div>

@@ -1,12 +1,17 @@
-atkDidier = document.getElementById("atkDidier");
-pvPoulpe = document.getElementById("pvPoulpe1");
-afficheAction = document.getElementById("afficheAction1");
-document.getElementById("pvPoulpe1").style.position = "relative"
-let health = document.getElementById("pvPoulpe1")
+let pvPoulpe = document.getElementById("pvPoulpe1")
+afficheAction = document.getElementById("afficheAction1"); 
+let pvCrabe = document.getElementById("pvCrabe")
 
-atkDidier.onclick = function() {
-    health.value -= 10;
-
+function atkDidier(){
+    pvPoulpe.value -= 10;
+    pvCrabe.value -= 10;
     afficheAction.innerHTML = "J'ai fait 10 points de dégats.";
 }
 // Exercice : débuggez ce script :)
+
+function magieDidier(){
+    pvCrabe.value -=30
+    afficheAction.innerHTML = "KABOOM 30 dégats dans ta mère"
+
+
+}
