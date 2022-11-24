@@ -9,7 +9,7 @@
     <body>
         <div class="Persos">  
             <div class="boiteaboite">
-                <div class= "Personnage" id="Didier">Didier</div> 
+                 <div class= "Personnage" id="Didier">Didier</div>
                 <div class="boitePerso" id="boiteDidider">
                     <div id="atkDidier">Attaquer</div>
                     <div id="defDidier">Défendre</div>
@@ -18,8 +18,7 @@
                     <div id="pvDidier">100</div>
                 </div>
             </div>        
-            <div id="afficheAction"></div>
-            
+            <div id="afficheAction1"></div>         
             <div class="boiteaboite">
                 <div class= "Personnage" id="Didier">Didier</div> 
                 <div class="boitePerso" id="boiteDidider">
@@ -55,13 +54,20 @@
                 </div>
             </div>    
             <div id="afficheAction"></div>
-        </div>    
+        </div>
+        
+        <div class="spriteHeros"></div>
+        
+        <div class="spriteMob"></div>    
+        
         <div class="monstres">    
             <div class="boiteaboite">
                 <div class="mon" id="Poulpe">Poulpor le monstre
                     <span class="boiteMon" id="boitePoulpe">
                         <div id="pvPoulpeTXT">Vie de Poulpor:</div>
-                        <div id="pvPoulpe">100</div>
+                        <div class="pvPoulpe" data-total="100" data-value="100">
+                            <div class="hit"></div>
+                      </div>
                     </span>
                 </div>    
             </div>
@@ -70,7 +76,9 @@
                 <div class="mon" id="Poulpe">Poulpor le monstre
                     <span class="boiteMon" id="boitePoulpe">
                         <div id="pvPoulpeTXT">Vie de Poulpor:</div>
-                        <div id="pvPoulpe">100</div>
+                        <div class="pvPoulpe" data-total="100" data-value="100">
+                            <div class="hit"></div>
+                      </div>
                     </span>
                 </div>    
             </div>
@@ -79,9 +87,7 @@
                 <div class="mon" id="Poulpe">Poulpor le monstre
                     <span class="boiteMon" id="boitePoulpe">
                         <div id="pvPoulpeTXT">Vie de Poulpor:</div>
-                            <div class="pvPoulpe">
-                                  <div class="hit"></div>
-                            </div>                        
+                        <progress id="pvPoulpe1" value="100" max="100"></progress>                        
                     </span>
                 </div>
             </div>
