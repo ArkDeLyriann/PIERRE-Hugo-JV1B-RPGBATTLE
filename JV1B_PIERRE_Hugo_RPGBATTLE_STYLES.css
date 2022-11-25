@@ -33,6 +33,49 @@ body{
     text-align: center;
     background-color: rgb(148, 108, 180);
 }
+.boitePerso{
+    width: 100px;
+    height: 100px;
+    background-color: rgb(188, 172, 224);
+    border: 10px solid rgb(45, 5, 68);
+    padding: 5%;
+    justify-content: center;
+    
+
+}
+
+.spritesbox{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#spriteGreen{
+    height: 200px;
+      width: 200px;
+      background: url(https://i.imgur.com/njy9Ryi.png)
+        0px 0px;
+    }
+#spriteBlue{
+    height: 200px;
+    width: 200px;
+    background: url(https://i.imgur.com/paSy05y.png)
+        0px 0px;
+}
+
+#spritePurple{
+    height: 200px;
+    width: 200px;
+    background: url(https://i.imgur.com/TYau9UF.png)
+        0px 0px;
+}
+
+#spriteOrange{
+    height: 200px;
+    width: 200px;
+    background: url(https://i.imgur.com/9Ss5JLS.png)
+        0px 0px;
+}
 
 .monstres{
     display: flex;
