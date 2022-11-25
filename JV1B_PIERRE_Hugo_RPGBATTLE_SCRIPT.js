@@ -7,7 +7,7 @@ function atkDidier(){
     pvCrabe.value -= 10;
     afficheAction.innerHTML = "J'ai fait 10 points de dégats.";
 }
-// Exercice : débuggez ce script :)
+
 
 function magieDidier(){
     pvCrabe.value -=30
@@ -29,9 +29,9 @@ function stopAnimation() {
 }
 
 function startAnimation() {
-  var position = widthOfEachSprite; //start position for the image
-  const speed = 500; //in millisecond(ms)
-  const diff = widthOfEachSprite; //difference between two sprites
+  var position = widthOfEachSprite; //position de départ de l'image
+  const speed = 500; //en millisecondes
+  const diff = widthOfEachSprite; //largeur des sprites
 
   animationInterval = setInterval(() => {
     spriteSheetGreen.style.backgroundPosition = `-${position}px 0px`;
@@ -42,10 +42,10 @@ function startAnimation() {
     if (position < widthOfSpriteSheet) {
       position = position + diff;
     } else {
-      //increment the position by the width of each sprite each time
+      //changer la position entre les deux sprites
       position = widthOfEachSprite;
     }
-    //reset the position to show first sprite after the last one
+    //remettre la position a zéro
   }, speed);
 }
 
