@@ -77,6 +77,11 @@ body{
         0px 0px;
 }
 
+.spriteBoxMon{
+    height: 500px;
+    width: 100%;
+}
+
 .monstres{
     display: flex;
     flex-direction: row;
@@ -119,4 +124,8 @@ body{
 
 .mon:hover .boiteMon {
     visibility: visible;
+}
+
+#atkDidier{
+    background-color: aquamarine;
 }

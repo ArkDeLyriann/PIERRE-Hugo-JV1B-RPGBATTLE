@@ -2,6 +2,10 @@ let pvPoulpe = document.getElementById("pvPoulpe1")
 afficheAction = document.getElementById("afficheAction1"); 
 let pvCrabe = document.getElementById("pvCrabe")
 
+function defDidier(){
+  afficheAction.innerHTML = "Je me protège des dégats"
+}
+
 function atkDidier(){
     pvPoulpe.value -= 10;
     pvCrabe.value -= 10;
