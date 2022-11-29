@@ -40,7 +40,7 @@ function stopAnimation() {
 
 function startAnimation() {
   var position = widthOfEachSprite; //position de départ de l'image
-  const speed = 700; //en millisecondes
+  const speed = 500; //en millisecondes
   const diff = widthOfEachSprite; //largeur des sprites
 
   animationInterval = setInterval(() => {
@@ -65,7 +65,7 @@ startAnimation();
 function damageOnGreen(){
   var vertical = widthSpriteDmg; //position de départ de l'image
   var horizontal = heighSpriteDmg
-  const dmgSpeed = 75; //en millisecondes
+  const dmgSpeed = 50; //en millisecondes
   const horDiff = widthSpriteDmg; //largeur des sprites
   const verDiff = heighSpriteDmg
   
