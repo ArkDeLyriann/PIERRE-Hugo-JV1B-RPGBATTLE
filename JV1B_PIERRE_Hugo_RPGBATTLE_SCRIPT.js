@@ -2,18 +2,19 @@ let pvPoulpe = document.getElementById("pvPoulpe1")
 afficheAction = document.getElementById("afficheAction1"); 
 let pvCrabe = document.getElementById("pvCrabe")
 
-function defDidier(){
+function defRaphael(){
   afficheAction.innerHTML = "Je me protège des dégats"
 }
 
-function atkDidier(){
+function atkRaphael(){
     pvPoulpe.value -= 10;
     pvCrabe.value -= 10;
     afficheAction.innerHTML = "J'ai fait 10 points de dégats.";
+    damageOnGreen()
 }
 
 
-function magieDidier(){
+function magieRaphael(){
     pvCrabe.value -=30
     afficheAction.innerHTML = "KABOOM 30 dégats dans ta mère"
 
@@ -27,6 +28,11 @@ var spriteSheetPurple = document.getElementById("spritePurple");
 var spriteSheetOrange = document.getElementById("spriteOrange");
 var widthOfSpriteSheet = 400;
 var widthOfEachSprite = 200;
+var dmgOnGreen = document.getElementById("dmgOnGreen");
+var widthSpriteDmg = 512;
+var heighSpriteDmg = 512
+var widthSpriteSheetDmg = 2048;
+var intervale;
 
 function stopAnimation() {
   clearInterval(animationInterval);
@@ -55,3 +61,31 @@ function startAnimation() {
 
 //Start animation
 startAnimation();
+
+function damageOnGreen(){
+  var vertical = widthSpriteDmg; //position de départ de l'image
+  var horizontal = heighSpriteDmg
+  const dmgSpeed = 75; //en millisecondes
+  const horDiff = widthSpriteDmg; //largeur des sprites
+  const verDiff = heighSpriteDmg
+  
+  
+  
+  intervale = setInterval(() => {
+    dmgOnGreen.style.backgroundPosition = `-${horizontal}px -${vertical}px`;
+
+    if (horizontal < widthSpriteSheetDmg) {
+        horizontal = horizontal + horDiff;
+    
+    } 
+    else if (horizontal == widthSpriteSheetDmg) {
+        vertical = vertical + verDiff;  
+        horizontal = widthSpriteDmg;
+    }
+    else{
+      horizontal = widthSpriteDmg;
+      vertical = heighSpriteDmg;
+    }
+  }, dmgSpeed);
+  
+}

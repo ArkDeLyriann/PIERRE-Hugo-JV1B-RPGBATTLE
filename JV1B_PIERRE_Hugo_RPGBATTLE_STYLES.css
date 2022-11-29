@@ -20,7 +20,7 @@ body{
     width: 100px;
     background-color: rgb(188, 172, 224);
     border: 10px solid rgb(45, 5, 68);
-    padding: 25px;
+    padding: 15px;
     margin: 10px;
     
 
@@ -77,6 +77,12 @@ body{
         0px 0px;
 }
 
+.damageAnim{
+    background: url("assets/damageAnimation.png");
+    height: 500px;
+    width: 500px;
+}
+
 .spriteBoxMon{
     height: 500px;
     width: 100%;
@@ -100,6 +106,7 @@ body{
     margin: 10px;
     color: white;
 }
+
 
 .mon .boiteMon{
     visibility: hidden;
@@ -126,6 +133,6 @@ body{
     visibility: visible;
 }
 
-#atkDidier{
+#atkRaphael{
     background-color: aquamarine;
 }
