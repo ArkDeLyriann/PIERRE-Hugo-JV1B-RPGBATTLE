@@ -10,7 +10,9 @@ function atkRaphael(){
     pvPoulpe.value -= 10;
     pvCrabe.value -= 10;
     afficheAction.innerHTML = "J'ai fait 10 points de dégats.";
-    damageOnGreen()
+    damageOnGreen();
+    
+    //stopdamgeOnGreen();
 }
 
 
@@ -70,7 +72,7 @@ function damageOnGreen(){
   const verDiff = heighSpriteDmg
   
   
-  
+
   intervale = setInterval(() => {
     dmgOnGreen.style.backgroundPosition = `-${horizontal}px -${vertical}px`;
 
@@ -87,5 +89,10 @@ function damageOnGreen(){
       vertical = heighSpriteDmg;
     }
   }, dmgSpeed);
-  
+}
+
+function stopdamgeOnGreen() {
+  clearInterval(intervale);
+  // release our intervalID from the variable
+  intervale = null;
 }
