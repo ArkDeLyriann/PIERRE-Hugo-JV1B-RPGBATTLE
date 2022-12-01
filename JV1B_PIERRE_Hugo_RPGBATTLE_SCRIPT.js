@@ -90,7 +90,7 @@ function damageOnGreen(){
       vertical = heighSpriteDmg;
     }
     nombreBoucle++
-    if(nombreBoucle == 16){
+    if(nombreBoucle == 10){
     window.clearInterval(intervale);
     nombreBoucle = 0
     }
