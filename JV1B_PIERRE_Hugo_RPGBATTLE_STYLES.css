@@ -84,8 +84,16 @@ body{
 }
 
 .spriteBoxMon{
+    display: flex;
+    justify-content: center;
     height: 500px;
     width: 100%;
+}
+
+#spriteCrab{
+    background: url("assets/CRAB.png");
+    height: 500px;
+    width: 500px;
 }
 
 .monstres{
