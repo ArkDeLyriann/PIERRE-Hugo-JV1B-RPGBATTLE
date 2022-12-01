@@ -35,6 +35,7 @@ var widthSpriteDmg = 512;
 var heighSpriteDmg = 512
 var widthSpriteSheetDmg = 2048;
 var intervale;
+var nombreBoucle = 0;
 
 function stopAnimation() {
   clearInterval(animationInterval);
@@ -66,10 +67,10 @@ startAnimation();
 
 function damageOnGreen(){
   var vertical = widthSpriteDmg; //position de départ de l'image
-  var horizontal = heighSpriteDmg
+  var horizontal = heighSpriteDmg;
   const dmgSpeed = 50; //en millisecondes
   const horDiff = widthSpriteDmg; //largeur des sprites
-  const verDiff = heighSpriteDmg
+  const verDiff = heighSpriteDmg;
   
   
 
@@ -88,11 +89,10 @@ function damageOnGreen(){
       horizontal = widthSpriteDmg;
       vertical = heighSpriteDmg;
     }
+    nombreBoucle++
+    if(nombreBoucle == 16){
+    window.clearInterval(intervale);
+    nombreBoucle = 0
+    }
   }, dmgSpeed);
-}
-
-function stopdamgeOnGreen() {
-  clearInterval(intervale);
-  // release our intervalID from the variable
-  intervale = null;
 }
