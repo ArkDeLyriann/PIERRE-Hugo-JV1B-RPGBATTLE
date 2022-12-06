@@ -1,6 +1,20 @@
 let pvPoulpe = document.getElementById("pvPoulpe1")
 afficheAction = document.getElementById("afficheAction1"); 
 let pvCrabe = document.getElementById("pvCrabe")
+var animationInterval;
+var spriteSheetGreen = document.getElementById("spriteGreen");
+var spriteSheetBlue = document.getElementById("spriteBlue");
+var spriteSheetPurple = document.getElementById("spritePurple");
+var spriteSheetOrange = document.getElementById("spriteOrange");
+var widthOfSpriteSheet = 400;
+var widthOfEachSprite = 200;
+var dmgOnGreen = document.getElementById("dmgOnGreen");
+var widthSpriteDmg = 512;
+var heighSpriteDmg = 512
+var widthSpriteSheetDmg = 2048;
+var intervale;
+var nombreBoucle = 0;
+
 
 function defRaphael(){
   afficheAction.innerHTML = "Je me protège des dégats"
@@ -23,19 +37,7 @@ function magieRaphael(){
 
 }
 
-var animationInterval;
-var spriteSheetGreen = document.getElementById("spriteGreen");
-var spriteSheetBlue = document.getElementById("spriteBlue");
-var spriteSheetPurple = document.getElementById("spritePurple");
-var spriteSheetOrange = document.getElementById("spriteOrange");
-var widthOfSpriteSheet = 400;
-var widthOfEachSprite = 200;
-var dmgOnGreen = document.getElementById("dmgOnGreen");
-var widthSpriteDmg = 512;
-var heighSpriteDmg = 512
-var widthSpriteSheetDmg = 2048;
-var intervale;
-var nombreBoucle = 0;
+
 
 function stopAnimation() {
   clearInterval(animationInterval);
