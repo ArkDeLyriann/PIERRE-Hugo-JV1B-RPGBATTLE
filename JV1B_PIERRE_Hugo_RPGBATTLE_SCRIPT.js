@@ -6,8 +6,8 @@ var spriteSheetGreen = document.getElementById("spriteGreen");
 var spriteSheetBlue = document.getElementById("spriteBlue");
 var spriteSheetPurple = document.getElementById("spritePurple");
 var spriteSheetOrange = document.getElementById("spriteOrange");
-var widthOfSpriteSheet = 400;
-var widthOfEachSprite = 200;
+var widthSpriteSheetIdle = 400;
+var widthSpriteIdle = 200;
 var dmgOnGreen = document.getElementById("dmgOnGreen");
 var widthSpriteDmg = 512;
 var heighSpriteDmg = 512
@@ -26,7 +26,6 @@ function atkRaphael(){
     afficheAction.innerHTML = "J'ai fait 10 points de dégats.";
     damageOnGreen();
     
-    //stopdamgeOnGreen();
 }
 
 
@@ -38,15 +37,12 @@ function magieRaphael(){
 }
 
 
-
-function stopAnimation() {
-  clearInterval(animationInterval);
-}
-
-function startAnimation() {
-  var position = widthOfEachSprite; //position de départ de l'image
+function IdleAnimation() {
+  var position = widthSpriteIdle
+  ; //position de départ de l'image
   const speed = 500; //en millisecondes
-  const diff = widthOfEachSprite; //largeur des sprites
+  const diff = widthSpriteIdle
+  ; //largeur des sprites
 
   animationInterval = setInterval(() => {
     spriteSheetGreen.style.backgroundPosition = `-${position}px 0px`;
@@ -54,18 +50,19 @@ function startAnimation() {
     spriteSheetPurple.style.backgroundPosition = `-${position}px 0px`;
     spriteSheetOrange.style.backgroundPosition = `-${position}px 0px`;
 
-    if (position < widthOfSpriteSheet) {
-      position = position + diff;
+    if (position < widthSpriteSheetIdle
+    ) {
+      position = position + dif;
     } else {
       //changer la position entre les deux sprites
-      position = widthOfEachSprite;
+      position = widthSpriteIdle
+      ;
     }
     //remettre la position a zéro
   }, speed);
 }
 
-//Start animation
-startAnimation();
+IdleAnimation();
 
 function damageOnGreen(){
   var vertical = widthSpriteDmg; //position de départ de l'image
