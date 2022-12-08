@@ -77,6 +77,12 @@ body{
         0px 0px;
 }
 
+.damageSurHeros{
+    background: url("assets/damageOnHeros.png");
+    height: 200px;
+    width: 200px;
+}
+
 .damageAnim{
     background: url("assets/damageAnimation.png");
     height: 500px;

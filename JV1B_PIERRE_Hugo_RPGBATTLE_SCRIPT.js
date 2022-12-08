@@ -1,5 +1,4 @@
 let pvPoulpe = document.getElementById("pvPoulpe1")
-afficheAction = document.getElementById("afficheAction1"); 
 let pvCrabe = document.getElementById("pvCrabe")
 var animationInterval;
 var spriteSheetGreen = document.getElementById("spriteGreen");
@@ -11,21 +10,32 @@ var widthSpriteIdle = 200;
 var damageSurCrabe = document.getElementById("dmgOnCrab");
 var damageSurPoulpe = document.getElementById("dmgOnPoulpe");
 var damageSurFish = document.getElementById("dmgOnFish");
+var damageSurRaphael = document.getElementById("dmgOnRaphael")
 var widthSpriteDmg = 512;
-var heighSpriteDmg = 512
+var heighSpriteDmg = 512;
 var widthSpriteSheetDmg = 2048;
+var widthSpriteDmgEnnemy = 200;
+var heighSpriteDmgEnnemy = 200;
+var widthSpriteSheetDmgEnnemy = 800;
 var intervale;
 var nombreBoucle = 0;
+defRaph=false;
+var imgCrabe = document.getElementById("spriteCrab");
 
 
 function defRaphael(){
-  afficheAction.innerHTML = "Je me protège des dégats"
+  defRaph = true
+ 
+
 }
 
 function atkRaphael(){
     pvPoulpe.value -= 10;
     pvCrabe.value -= 10;
-    afficheAction.innerHTML = "J'ai fait 10 points de dégats.";
+    if (pvCrabe.value<=0){
+      imgCrabe.style.opacity = null;
+    }
+    
     damageOnCrab();
     
 }
@@ -33,7 +43,7 @@ function atkRaphael(){
 function atkLeonardo(){
   pvPoulpe.value -= 10;
   pvCrabe.value -= 10;
-  afficheAction.innerHTML = "J'ai fait 10 points de dégats.";
+  
   damageOnFish();
   
 }
@@ -41,7 +51,7 @@ function atkLeonardo(){
 function atkDonatello(){
   pvPoulpe.value -= 10;
   pvCrabe.value -= 10;
-  afficheAction.innerHTML = "J'ai fait 10 points de dégats.";
+  
   damageOnPoulpe();
   
 }
@@ -49,7 +59,8 @@ function atkDonatello(){
 
 function magieRaphael(){
     pvCrabe.value -=30
-    afficheAction.innerHTML = "KABOOM 30 dégats dans ta mère"
+    
+    damageOnRaphael()
 
 
 }
@@ -170,6 +181,38 @@ function damageOnFish(){
     else{
       horizontal = widthSpriteDmg;
       vertical = heighSpriteDmg;
+    }
+    nombreBoucle++
+    if(nombreBoucle == 10){
+    window.clearInterval(intervale);
+    nombreBoucle = 0
+    }
+  }, dmgSpeed);
+}
+
+function damageOnRaphael(){
+  var vertical = widthSpriteDmgEnnemy; //position de départ de l'image
+  var horizontal = heighSpriteDmgEnnemy;
+  const dmgSpeed = 100; //en millisecondes
+  const horDiff = widthSpriteDmgEnnemy; //largeur des sprites
+  const verDiff = heighSpriteDmgEnnemy;
+  
+  
+
+  intervale = setInterval(() => {
+    damageSurRaphael.style.backgroundPosition = `-${horizontal}px -${vertical}px`;
+
+    if (horizontal < widthSpriteSheetDmgEnnemy) {
+        horizontal = horizontal + horDiff;
+    
+    } 
+    else if (horizontal == widthSpriteSheetDmgEnnemy) {
+        vertical = vertical + verDiff;  
+        horizontal = widthSpriteDmgEnnemy;
+    }
+    else{
+      horizontal = widthSpriteDmgEnnemy;
+      vertical = heighSpriteDmgEnnemy;
     }
     nombreBoucle++
     if(nombreBoucle == 10){
