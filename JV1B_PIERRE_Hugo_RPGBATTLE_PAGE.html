@@ -28,7 +28,7 @@
             <div class="boiteaboite">
                 <div class= "Personnage" id="Leonardo">Leonardo</div> 
                 <div class="boitePerso" id="boiteLeonardo">
-                    <button onclick="atkLeonardo()" id="atkLeonardo" disabled>Attaquer</button>
+                    <button onclick="atkLeonardo()" id="atkLeonardo">Attaquer</button>
                     <button onclick="defLeonardo()" disabled>Défendre</button>
                     <button onclick="magieLeonardo()" disabled>Magie</button>
                     <div class="vieHeros" id="vieLeo">
@@ -91,12 +91,15 @@
 
         <div class="spriteBoxMon">
             <div class="spritesmons" id ="spritePoulpe">
+                <button onclick="selectedPoulpe()" id="selectPoulpe" disabled>Cibler Poulpor</button>
                 <div class="damageAnim" id="dmgOnPoulpe"></div>
             </div>
             <div class="spritesMons" id="spriteCrab">
+                <button onclick="selectedCrab()" id="selectCrab" disabled>Cibler Crabox</button>
                 <div class="damageAnim" id="dmgOnCrab"></div>
             </div>
             <div class="spritesMons" id="spriteFish">
+                <button onclick="selectedFish()" id="selectFish" disabled>Cibler Piranhaxx</button>
                 <div class="damageAnim" id="dmgOnFish"></div>
             </div>
         </div>   
