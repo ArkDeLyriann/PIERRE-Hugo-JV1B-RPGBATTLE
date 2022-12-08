@@ -63,12 +63,12 @@ function defRaphael(){
 
 }
 
-function aktRaphael(){
-    pvPoulpe.value -= 10;
-    pvCrabe.value -= 10;
-    damageOnCrab();
-    atkRaphButton.disabled = true;
-    tourJ1=false;
+function atkRaphael(){
+  pvPoulpe.value -= 10;
+  pvCrabe.value -= 10;
+  damageOnCrab();
+  adocument.getElementById("atkRaph").disabled = true;
+  
     
 }
 
