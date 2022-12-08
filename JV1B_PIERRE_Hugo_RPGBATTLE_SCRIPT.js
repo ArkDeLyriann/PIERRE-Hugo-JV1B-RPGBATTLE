@@ -1,10 +1,15 @@
+//Variables des stats des Monstres
 let pvPoulpe = document.getElementById("pvPoulpe")
 let pvCrabe = document.getElementById("pvCrabe")
 let pvFish = document.getElementById("pvFish")
 var crabox = document.getElementById("spriteCrab")
 
+
+//Variables des stats des Heros
 let manaRaph = document.getElementById("pmRaph")
 
+
+//Variables utilisée dans l'animation Idle
 var animationInterval;
 var spriteSheetGreen = document.getElementById("spriteGreen");
 var spriteSheetBlue = document.getElementById("spriteBlue");
@@ -13,24 +18,34 @@ var spriteSheetOrange = document.getElementById("spriteOrange");
 var widthSpriteSheetIdle = 400;
 var widthSpriteIdle = 200;
 
+
+//Variables des animations de dégats sur les monstres
 var intervale;
 var damageSurCrabe = document.getElementById("dmgOnCrab");
 var damageSurPoulpe = document.getElementById("dmgOnPoulpe");
 var damageSurFish = document.getElementById("dmgOnFish");
-var damageSurRaphael = document.getElementById("dmgOnRaphael")
 var widthSpriteDmg = 512;
 var heighSpriteDmg = 512;
 var widthSpriteSheetDmg = 2048;
 var nombreBoucle = 0;
 
+
+//Variabkes des animations de dégats sur les héros
+var damageSurRaphael = document.getElementById("dmgOnRaphael");
 var widthSpriteDmgEnnemy = 200;
 var heighSpriteDmgEnnemy = 200;
 var widthSpriteSheetDmgEnnemy = 800;
 
 
+//Variables de défense des Héros
+var defRaph=false;
 
-defRaph=false;
 
+//Variable de compétence utilisée
+var compRaph = 0
+var compDon = 0
+var compLeo = 0
+var compMichel = 0
 
 
 function defRaphael(){
@@ -66,11 +81,15 @@ function atkDonatello(){
 
 
 function magieRaphael(){
+  if (manaRaph.value>=10){
     manaRaph.value -= 10;
     pvCrabe.value -=30;
-    
+  
     damageOnRaphael()
+  }
+  else{
 
+  }
 
 }
 
