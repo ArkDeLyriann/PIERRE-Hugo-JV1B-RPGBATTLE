@@ -11,9 +11,9 @@
             <div class="boiteaboite">
                 <div class= "Personnage" id="Raphael">Raphael</div>
                 <div class="boitePerso" id="boiteRaphael">
-                    <button onclick="atkRaphael()" id="atkRaphael">Attaquer</button>
-                    <button onclick="defRaphael()">Défendre</button>
-                    <button onclick="magieRaphael()">Magie</button>
+                    <button onclick="atkRaphael()" id="atkRaphael" disabled>Attaquer</button>
+                    <button onclick="defRaphael()" disabled>Défendre</button>
+                    <button onclick="magieRaphael()" disabled>Magie</button>
                     <div class="vieHeros" id="vieRaph">
                         PV
                         <progress id="pvRaph" value="200" max="200"></progress>
@@ -28,11 +28,17 @@
             <div class="boiteaboite">
                 <div class= "Personnage" id="Leonardo">Leonardo</div> 
                 <div class="boitePerso" id="boiteLeonardo">
-                    <button onclick="atkLeonardo()" id="atkLeonardo">Attaquer</button>
-                    <div id="defLeonardo">Défendre</div>
-                    <div id="magLeonardo">Magie</div>
-                    <div id="pvLeonardoTXT">Vie de Leonardo:</div>
-                    <div id="pvLeonardo">100</div>
+                    <button onclick="atkLeonardo()" id="atkLeonardo" disabled>Attaquer</button>
+                    <button onclick="defLeonardo()" disabled>Défendre</button>
+                    <button onclick="magieLeonardo()" disabled>Magie</button>
+                    <div class="vieHeros" id="vieLeo">
+                        PV
+                        <progress id="pvLeo" value="200" max="200"></progress>
+                    </div>
+                    <div class="manaHeros" id="manaLeo">
+                        PM
+                        <progress id="pmLeo" value="200" max="200"></progress>
+                    </div>
                 </div>
             </div>    
             
@@ -40,11 +46,17 @@
             <div class="boiteaboite">
             <div class= "Personnage" id="Donatello">Donatello</div> 
                 <div class="boitePerso" id="boieDonatello">
-                    <button onclick="atkDonatello()" id="atkDonatello">Attaquer</button>
-                    <div id="defDonatello">Défendre</div>
-                    <div id="magDonatello">Magie</div>
-                    <div id="pvDonatelloTXT">Vie de Donatello:</div>
-                    <div id="pvDonatello">100</div>
+                    <button onclick="atkDonatello()" id="atkLeonardo" disabled>Attaquer</button>
+                    <button onclick="defDonatello()" disabled>Défendre</button>
+                    <button onclick="magieDonatello()" disabled>Magie</button>
+                    <div class="vieHeros" id="vieDona">
+                        PV
+                        <progress id="pvDona" value="200" max="200"></progress>
+                    </div>
+                    <div class="manaHeros" id="manaDona">
+                        PM
+                        <progress id="pmDona" value="200" max="200"></progress>
+                    </div>
                 </div>
             </div>    
             
@@ -52,11 +64,17 @@
             <div class="boiteaboite">
                 <div class= "Personnage" id="Michelangelo">Michelangelo</div> 
                 <div class="boitePerso" id="boiteMichelangelo">
-                    <div id="atkMichelangelo">Attaquer</div>
-                    <div id="defMichelangelo">Défendre</div>
-                    <div id="magMichelangelo">Magie</div>
-                    <div id="pvMichelangeloTXT">Vie de Michelangelo:</div>
-                    <div id="pvMichelangelo">100</div>
+                    <button onclick="atkMichelangelo()" id="atkLeonardo" disabled>Attaquer</button>
+                    <button onclick="defMichelangelo()" disabled>Défendre</button>
+                    <button onclick="magieMichelangelo()" disabled>Magie</button>
+                    <div class="vieHeros" id="vieMichel">
+                        PV
+                        <progress id="pvMichel" value="200" max="200"></progress>
+                    </div>
+                    <div class="manaHeros" id="manaMichel">
+                        PM
+                        <progress id="pmMichel" value="200" max="200"></progress>
+                    </div>
                 </div>
             </div>    
             

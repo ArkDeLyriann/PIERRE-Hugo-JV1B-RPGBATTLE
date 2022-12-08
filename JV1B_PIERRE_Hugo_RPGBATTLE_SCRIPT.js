@@ -42,10 +42,17 @@ var defRaph=false;
 
 
 //Variable de compétence utilisée
-var compRaph = 0
-var compDon = 0
-var compLeo = 0
-var compMichel = 0
+var lastCompRaph = 0;
+var lastCompDon = 0;
+var lastCompLeo = 0;
+var lastCompMichel = 0;
+
+//Variables pour le comptage de tours
+var tour = 0;
+var tourHeros = 0;
+
+//Variable de la fin du Jeu
+var finDuJeu = false;
 
 
 function defRaphael(){
@@ -284,3 +291,14 @@ function damageOnRaphael(){
 
 
 IdleAnimation(); //Démarre l'Idle des tortues
+
+
+//while(finDuJeu==false){
+  //tour = 0;
+  //if (tour =0){
+    //document.getElementById("atkRaphael").disabled=false
+  //}
+
+
+
+//}

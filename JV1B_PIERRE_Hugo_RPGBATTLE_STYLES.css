@@ -63,6 +63,30 @@ body{
     width:120px;
 }
 
+#pvLeo{
+    width:120px;
+}
+
+#pmLeo{
+    width:120px;
+}
+
+#pvDona{
+    width:120px;
+}
+
+#pmDona{
+    width:120px;
+}
+
+#pvMichel{
+    width:120px;
+}
+
+#pmMichel{
+    width:120px;
+}
+
 .spritesbox{
     display: flex;
     flex-direction: row;
@@ -182,8 +206,4 @@ body{
 
 .mon:hover .boiteMon {
     visibility: visible;
-}
-
-#atkRaphael{
-    background-color: aquamarine;
 }
