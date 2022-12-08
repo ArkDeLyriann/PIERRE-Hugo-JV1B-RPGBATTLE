@@ -40,6 +40,8 @@ var widthSpriteSheetDmgEnnemy = 800;
 //Variables de défense des Héros
 var defRaph=false;
 
+//Boutons
+const atkRaphButton = document.getElementById("atkRaphael");
 
 //Variable de compétence utilisée
 var lastCompRaph = 0;
@@ -53,6 +55,7 @@ var tourHeros = 0;
 
 //Variable de la fin du Jeu
 var finDuJeu = false;
+const i=0;
 
 
 function defRaphael(){
@@ -60,14 +63,27 @@ function defRaphael(){
 
 }
 
-function atkRaphael(){
+function aktRaphael(){
     pvPoulpe.value -= 10;
     pvCrabe.value -= 10;
     damageOnCrab();
-    if (pvCrabe.value<=0){
-      crabox.visibility.hidden = true;
-    }
+    atkRaphButton.disabled = true;
+    tourJ1=false;
     
+}
+
+function magieRaphael(){
+  if (manaRaph.value>=10){
+    manaRaph.value -= 10;
+    pvCrabe.value -=30;
+  
+    damageOnRaphael()
+    tourJ1=false;
+  }
+  else{
+
+  }
+
 }
 
 function atkLeonardo(){
@@ -87,18 +103,7 @@ function atkDonatello(){
 }
 
 
-function magieRaphael(){
-  if (manaRaph.value>=10){
-    manaRaph.value -= 10;
-    pvCrabe.value -=30;
-  
-    damageOnRaphael()
-  }
-  else{
 
-  }
-
-}
 
 ////Fonction pour l'Idle animation des tortues
 function IdleAnimation() {
@@ -293,12 +298,3 @@ function damageOnRaphael(){
 IdleAnimation(); //Démarre l'Idle des tortues
 
 
-//while(finDuJeu==false){
-  //tour = 0;
-  //if (tour =0){
-    //document.getElementById("atkRaphael").disabled=false
-  //}
-
-
-
-//}
