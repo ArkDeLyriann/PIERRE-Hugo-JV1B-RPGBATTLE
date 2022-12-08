@@ -1,5 +1,10 @@
-let pvPoulpe = document.getElementById("pvPoulpe1")
+let pvPoulpe = document.getElementById("pvPoulpe")
 let pvCrabe = document.getElementById("pvCrabe")
+let pvFish = document.getElementById("pvFish")
+var crabox = document.getElementById("spriteCrab")
+
+let manaRaph = document.getElementById("pmRaph")
+
 var animationInterval;
 var spriteSheetGreen = document.getElementById("spriteGreen");
 var spriteSheetBlue = document.getElementById("spriteBlue");
@@ -7,6 +12,8 @@ var spriteSheetPurple = document.getElementById("spritePurple");
 var spriteSheetOrange = document.getElementById("spriteOrange");
 var widthSpriteSheetIdle = 400;
 var widthSpriteIdle = 200;
+
+var intervale;
 var damageSurCrabe = document.getElementById("dmgOnCrab");
 var damageSurPoulpe = document.getElementById("dmgOnPoulpe");
 var damageSurFish = document.getElementById("dmgOnFish");
@@ -14,29 +21,30 @@ var damageSurRaphael = document.getElementById("dmgOnRaphael")
 var widthSpriteDmg = 512;
 var heighSpriteDmg = 512;
 var widthSpriteSheetDmg = 2048;
+var nombreBoucle = 0;
+
 var widthSpriteDmgEnnemy = 200;
 var heighSpriteDmgEnnemy = 200;
 var widthSpriteSheetDmgEnnemy = 800;
-var intervale;
-var nombreBoucle = 0;
+
+
+
 defRaph=false;
-var imgCrabe = document.getElementById("spriteCrab");
+
 
 
 function defRaphael(){
-  defRaph = true
- 
+  defRaph = true;
 
 }
 
 function atkRaphael(){
     pvPoulpe.value -= 10;
     pvCrabe.value -= 10;
-    if (pvCrabe.value<=0){
-      imgCrabe.style.opacity = null;
-    }
-    
     damageOnCrab();
+    if (pvCrabe.value<=0){
+      crabox.visibility.hidden = true;
+    }
     
 }
 
@@ -58,14 +66,15 @@ function atkDonatello(){
 
 
 function magieRaphael(){
-    pvCrabe.value -=30
+    manaRaph.value -= 10;
+    pvCrabe.value -=30;
     
     damageOnRaphael()
 
 
 }
 
-
+////Fonction pour l'Idle animation des tortues
 function IdleAnimation() {
   var position = widthSpriteIdle
   ; //position de départ de l'image
@@ -91,8 +100,10 @@ function IdleAnimation() {
   }, speed);
 }
 
-IdleAnimation();
 
+
+
+//Fonction d'animation des dégats sur le Crabe
 function damageOnCrab(){
   var vertical = widthSpriteDmg; //position de départ de l'image
   var horizontal = heighSpriteDmg;
@@ -125,6 +136,8 @@ function damageOnCrab(){
   }, dmgSpeed);
 }
 
+
+//Fonction d'animation des dégats sur le Poulpe
 function damageOnPoulpe(){
   var vertical = widthSpriteDmg; //position de départ de l'image
   var horizontal = heighSpriteDmg;
@@ -157,7 +170,7 @@ function damageOnPoulpe(){
   }, dmgSpeed);
 }
 
-
+//Fonction d'animation des dégats sur le Poisson
 function damageOnFish(){
   var vertical = widthSpriteDmg; //position de départ de l'image
   var horizontal = heighSpriteDmg;
@@ -190,6 +203,8 @@ function damageOnFish(){
   }, dmgSpeed);
 }
 
+
+//Fonction pour l'animation de dégats sur Raphael
 function damageOnRaphael(){
   var vertical = widthSpriteDmgEnnemy; //position de départ de l'image
   var horizontal = heighSpriteDmgEnnemy;
@@ -222,3 +237,31 @@ function damageOnRaphael(){
   }, dmgSpeed);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+IdleAnimation(); //Démarre l'Idle des tortues

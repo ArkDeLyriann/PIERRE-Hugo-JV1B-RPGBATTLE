@@ -9,13 +9,19 @@
     <body>
         <div class="Persos">  
             <div class="boiteaboite">
-                 <div class= "Personnage" id="Raphael">Raphael</div>
+                <div class= "Personnage" id="Raphael">Raphael</div>
                 <div class="boitePerso" id="boiteRaphael">
                     <button onclick="atkRaphael()" id="atkRaphael">Attaquer</button>
                     <button onclick="defRaphael()">Défendre</button>
                     <button onclick="magieRaphael()">Magie</button>
-                    <div id="pvRaphaelTXT">Vie de Raphael:</div>
-                    <div id="pvRaphael">100</div>
+                    <div class="vieHeros" id="vieRaph">
+                        PV
+                        <progress id="pvRaph" value="200" max="200"></progress>
+                    </div>
+                    <div class="manaHeros" id="manaRaph">
+                        PM
+                        <progress id="pmRaph" value="200" max="200"></progress>
+                    </div>
                 </div>
             </div>        
                     
@@ -82,27 +88,25 @@
                 <div class="mon" id="Poulpe">Poulpor le monstre
                     <span class="boiteMon" id="boitePoulpe">
                         <div id="pvPoulpeTXT">Vie de Poulpor:</div>
-                        <div class="pvPoulpe" data-total="100" data-value="100">
-                            <div class="hit"></div>
-                      </div>
+                        <progress id="pvPoulpe" value="100" max="100"></progress>
                     </span>
                 </div>    
             </div>
 
             <div class="boiteaboite">
                 <div class="mon" id="Crabe">Crabox le monstre
-                    <span class="boiteMon" id="boitePoulpe">
-                        <div id="pvPoulpeTXT">Vie de Crabox:</div>
-                        <progress id="pvCrabe" value="100" max="100"></progress>
+                    <span class="boiteMon" id="boiteCrab">
+                        <div id="pvCrabTXT">Vie de Crabox:</div>
+                        <progress id="pvCrabe" value="200" max="200"></progress>
                     </span>
                 </div>    
             </div>
             
             <div class="boiteaboite">
-                <div class="mon" id="Poulpe">Poulpor le monstre
-                    <span class="boiteMon" id="boitePoulpe">
-                        <div id="pvPoulpeTXT">Vie de Poulpor:</div>
-                        <progress id="pvPoulpe1" value="100" max="100"></progress>                        
+                <div class="mon" id="Fish">Piranhaxx
+                    <span class="boiteMon" id="boiteFish">
+                        <div id="pvFishTXT">Vie de Piranhaxx:</div>
+                        <progress id="pvFish" value="100" max="100"></progress>                        
                     </span>
                 </div>
             </div>

@@ -28,20 +28,39 @@ body{
 .boiteaboite{
     display: flex;
     flex-direction: column;
+    
 }
 .Personnage{
     text-align: center;
     background-color: rgb(148, 108, 180);
 }
 .boitePerso{
-    width: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 150px;
     height: 100px;
     background-color: rgb(188, 172, 224);
     border: 10px solid rgb(45, 5, 68);
     padding: 5%;
     justify-content: center;
-    
+    justify-content: space-between;
 
+}
+
+.vieHeros{
+    background-color: rgb(57, 194, 23);
+}
+
+.manaHeros{
+    background-color: rgb(39, 19, 218);
+}
+
+#pvRaph{
+    width:120px;
+}
+
+#pmRaph{
+    width:120px;
 }
 
 .spritesbox{
@@ -98,6 +117,7 @@ body{
 }
 
 #spriteCrab{
+    visibility: visible;
     background: url("assets/CRAB.png");
     height: 500px;
     width: 500px;
@@ -148,7 +168,11 @@ body{
     z-index: 1;
 }
 
-#pvPoulpe1{
+#pvFish{
+    width: 120px;
+}
+
+#pvPoulpe{
     width: 120px;
 }
 
