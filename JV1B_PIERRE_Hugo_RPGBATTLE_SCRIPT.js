@@ -24,7 +24,7 @@ function atkRaphael(){
     pvPoulpe.value -= 10;
     pvCrabe.value -= 10;
     afficheAction.innerHTML = "J'ai fait 10 points de dégats.";
-    damageOnGreen();
+    damageOnCrab();
     
 }
 
@@ -52,7 +52,7 @@ function IdleAnimation() {
 
     if (position < widthSpriteSheetIdle
     ) {
-      position = position + dif;
+      position = position + diff;
     } else {
       //changer la position entre les deux sprites
       position = widthSpriteIdle
@@ -64,7 +64,7 @@ function IdleAnimation() {
 
 IdleAnimation();
 
-function damageOnGreen(){
+function damageOnCrab(){
   var vertical = widthSpriteDmg; //position de départ de l'image
   var horizontal = heighSpriteDmg;
   const dmgSpeed = 50; //en millisecondes
