@@ -52,7 +52,10 @@ var lastCompMichel = 0;
 
 //Variables pour le comptage de tours
 var tour = 0;
-var tourHeros = 0;
+var tourRaphFini = false;
+var tourLeoFini = false;
+var tourDonaFini = false;
+var tourMichelFini= false;
 
 //Variable de la fin du Jeu
 var finDuJeu = false;
@@ -111,64 +114,223 @@ function activerMichel(){
   document.getElementById("magieMichel").disabled = false;
 }
 
-//Focntions des compétences de Raphael
-function defRaphael(){
-  defRaph = true;
+//désactiver les boutons de séléction de cible
+function desactiverPoulpe(){
+  document.getElementById("selectPoulpe").disabled = true;
+}
 
+function desactiverCrabe(){
+  document.getElementById("selectCrab").disabled = true;
+}
+
+function desactiverFish(){
+  document.getElementById("selectFish").disabled = true;
+}
+
+//réactiver les boutons de séléction de cible
+function activerPoulpe(){
+  document.getElementById("selectPoulpe").disabled = false;
+}
+
+function activerCrabe(){
+  document.getElementById("selectCrab").disabled = false;
+}
+
+function activerFish(){
+  document.getElementById("selectFish").disabled = false;
 }
 
 
+
+//Fonctions pour la défense des Héros.
+function defRaphael(){
+  defRaph = true;
+  desactiverRaph();
+  tour += 1;
+  cible = 0;
+  tourRaphFini = true;
+  activerCrabe();
+  activerFish();
+  activerPoulpe();
+
+}
+
+//Fonctions pour les attaques de base des héros.
 function atkRaphael(){
   if(cible==1){
     damageOnPoulpe();
+    pvPoulpe.value -= 10;
   }
   if(cible==2){
     damageOnCrab();
+    pvCrabe.value -= 10;
   }
   if(cible==3){
     damageOnFish();
+    pvFish.value -= 10;
   }
   desactiverRaph();
-  activerLeo();
   tour += 1;
-}
-
-
-
-function magieRaphael(){
-  if (manaRaph.value>=10){
-    manaRaph.value -= 10;
-    pvCrabe.value -=30;
-  
-    damageOnRaphael()
-    tourJ1=false;
-  }
-  else{
-
-  }
-
+  cible = 0;
+  tourRaphFini = true;
+  activerCrabe();
+  activerFish();
+  activerPoulpe();
 }
 
 function atkLeonardo(){
-  pvPoulpe.value -= 10;
-  pvCrabe.value -= 10;
-  
-  damageOnFish();
-  
+  if(cible==1){
+    damageOnPoulpe();
+    pvPoulpe.value -= 10;
+  }
+  if(cible==2){
+    damageOnCrab();
+    pvCrabe.value -= 10;
+  }
+  if(cible==3){
+    damageOnFish();
+    pvFish.value -= 10;
+  }
+  desactiverLeo();
+  tour += 1;
+  cible = 0;
+  tourLeoFini = true;
+  activerCrabe();
+  activerFish();
+  activerPoulpe();
 }
 
 function atkDonatello(){
-  pvPoulpe.value -= 10;
-  pvCrabe.value -= 10;
-  
-  damageOnPoulpe();
-  
+  if(cible==1){
+    damageOnPoulpe();
+    pvPoulpe.value -= 10;
+  }
+  if(cible==2){
+    damageOnCrab();
+    pvCrabe.value -= 10;
+  }
+  if(cible==3){
+    damageOnFish();
+    pvFish.value -= 10;
+  }
+  desactiverDona();
+  tour += 1;
+  cible = 0;
+  tourDonaFini = true;
+  activerCrabe();
+  activerFish();
+  activerPoulpe();
 }
+
+function atkMichelangelo(){
+  if(cible==1){
+    damageOnPoulpe();
+    pvPoulpe.value -= 10;
+  }
+  if(cible==2){
+    damageOnCrab();
+    pvCrabe.value -= 10;
+  }
+  if(cible==3){
+    damageOnFish();
+    pvFish.value -= 10;
+  }
+  desactiverMichel();
+  tour += 1;
+  cible = 0;
+  tourMichelFini = true;
+}
+
+
+//Fonctions pour les compétences spéciales des Héros.
+function magieRaphael(){
+  if (manaRaph.value>=10){
+    if(cible==1){
+      damageOnPoulpe();
+      pvPoulpe.value -= 10;
+    }
+    if(cible==2){
+      damageOnCrab();
+      pvCrabe.value -= 10;
+    }
+    if(cible==3){
+      damageOnFish();
+      pvFish.value -= 10;
+    }
+    desactiverRaph();
+    tour += 1;
+    cible = 0;
+    tourRaphFini = true
+  }
+  else{
+
+
+  }
+
+}
+
 
 
 //Fonctions pour la séléction de la cible
 function selectedPoulpe(){
-  cible=1
+  cible=1;
+  desactiverCrabe();
+  desactiverFish();
+  desactiverPoulpe();
+  if (tourRaphFini==false & tourLeoFini==false & tourDonaFini==false & tourMichelFini==false){
+    activerRaph();
+  }
+  if (tourRaphFini==true & tourLeoFini==false & tourDonaFini==false & tourMichelFini==false){
+    activerLeo();
+  }
+  if (tourRaphFini==true & tourLeoFini==true & tourDonaFini==false & tourMichelFini==false){
+    activerDona();
+  }
+  if (tourRaphFini==true & tourLeoFini==true & tourDonaFini==true & tourMichelFini==false){
+    activerMichel();
+  }
+  
+
+}
+
+function selectedCrab(){
+  cible=2;
+  desactiverCrabe();
+  desactiverFish();
+  desactiverPoulpe();
+  if (tourRaphFini==false & tourLeoFini==false & tourDonaFini==false & tourMichelFini==false){
+    activerRaph();
+  }
+  if (tourRaphFini==true & tourLeoFini==false & tourDonaFini==false & tourMichelFini==false){
+    activerLeo();
+  }
+  if (tourRaphFini==true & tourLeoFini==true & tourDonaFini==false & tourMichelFini==false){
+    activerDona();
+  }
+  if (tourRaphFini==true & tourLeoFini==true & tourDonaFini==true & tourMichelFini==false){
+    activerMichel();
+  }
+
+}
+
+function selectedFish(){
+  cible=3;
+  desactiverCrabe();
+  desactiverFish();
+  desactiverPoulpe();
+  if (tourRaphFini==false & tourLeoFini==false & tourDonaFini==false & tourMichelFini==false){
+    activerRaph();
+  }
+  if (tourRaphFini==true & tourLeoFini==false & tourDonaFini==false & tourMichelFini==false){
+    activerLeo();
+  }
+  if (tourRaphFini==true & tourLeoFini==true & tourDonaFini==false & tourMichelFini==false){
+    activerDona();
+  }
+  if (tourRaphFini==true & tourLeoFini==true & tourDonaFini==true & tourMichelFini==false){
+    activerMichel();
+  }
+
 }
 
 
@@ -341,7 +503,11 @@ function damageOnRaphael(){
 
 
 
-
+//A FAIRE 
+// Programmer la riposte des monstres
+// Finir de programmer les options d'attaques spéciales pour tous les héros et leur défenses
+//faire disparaitres des sprites des entités mortes
+// Créer la obucle de jeu avec le calcul des tours et les conditions de victoire/défaite
 
 
 
