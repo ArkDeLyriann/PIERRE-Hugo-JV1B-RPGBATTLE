@@ -11,9 +11,9 @@
             <div class="boiteaboite">
                 <div class= "Personnage" id="Raphael">Raphael</div>
                 <div class="boitePerso" id="boiteRaphael">
-                    <button onclick="atkRaphael()" id="atkRaph">Attaquer</button>
-                    <button onclick="defRaphael()" id="defRaphael">Défendre</button>
-                    <button onclick="magieRaphael()" id="magieRaphael">Magie</button>
+                    <button onclick="atkRaphael()" id="atkRaph" disabled>Attaquer</button>
+                    <button onclick="defRaphael()" id="defRaph" disabled>Défendre</button>
+                    <button onclick="magieRaphael()" id="magieRaph" disabled>Magie</button>
                     <div class="vieHeros" id="vieRaph">
                         PV
                         <progress id="pvRaph" value="200" max="200"></progress>
@@ -28,9 +28,9 @@
             <div class="boiteaboite">
                 <div class= "Personnage" id="Leonardo">Leonardo</div> 
                 <div class="boitePerso" id="boiteLeonardo">
-                    <button onclick="atkLeonardo()" id="atkLeonardo">Attaquer</button>
-                    <button onclick="defLeonardo()" disabled>Défendre</button>
-                    <button onclick="magieLeonardo()" disabled>Magie</button>
+                    <button onclick="atkLeonardo()" id="atkLeo" disabled>Attaquer</button>
+                    <button onclick="defLeonardo()" id="defLeo" disabled>Défendre</button>
+                    <button onclick="magieLeonardo()" id="magieLeo" disabled>Magie</button>
                     <div class="vieHeros" id="vieLeo">
                         PV
                         <progress id="pvLeo" value="200" max="200"></progress>
@@ -46,9 +46,9 @@
             <div class="boiteaboite">
             <div class= "Personnage" id="Donatello">Donatello</div> 
                 <div class="boitePerso" id="boieDonatello">
-                    <button onclick="atkDonatello()" id="atkLeonardo" disabled>Attaquer</button>
-                    <button onclick="defDonatello()" disabled>Défendre</button>
-                    <button onclick="magieDonatello()" disabled>Magie</button>
+                    <button onclick="atkDonatello()" id="atkDona" disabled>Attaquer</button>
+                    <button onclick="defDonatello()" id="defDona" disabled>Défendre</button>
+                    <button onclick="magieDonatello()" id="magieDona" disabled>Magie</button>
                     <div class="vieHeros" id="vieDona">
                         PV
                         <progress id="pvDona" value="200" max="200"></progress>
@@ -64,9 +64,9 @@
             <div class="boiteaboite">
                 <div class= "Personnage" id="Michelangelo">Michelangelo</div> 
                 <div class="boitePerso" id="boiteMichelangelo">
-                    <button onclick="atkMichelangelo()" id="atkLeonardo" disabled>Attaquer</button>
-                    <button onclick="defMichelangelo()" disabled>Défendre</button>
-                    <button onclick="magieMichelangelo()" disabled>Magie</button>
+                    <button onclick="atkMichelangelo()" id="atkMichel" disabled>Attaquer</button>
+                    <button onclick="defMichelangelo()" id="defMichel" disabled>Défendre</button>
+                    <button onclick="magieMichelangelo()" id="magieMichel" disabled>Magie</button>
                     <div class="vieHeros" id="vieMichel">
                         PV
                         <progress id="pvMichel" value="200" max="200"></progress>
@@ -91,15 +91,15 @@
 
         <div class="spriteBoxMon">
             <div class="spritesmons" id ="spritePoulpe">
-                <button onclick="selectedPoulpe()" id="selectPoulpe" disabled>Cibler Poulpor</button>
+                <button onclick="selectedPoulpe()" id="selectPoulpe">Cibler Poulpor</button>
                 <div class="damageAnim" id="dmgOnPoulpe"></div>
             </div>
             <div class="spritesMons" id="spriteCrab">
-                <button onclick="selectedCrab()" id="selectCrab" disabled>Cibler Crabox</button>
+                <button onclick="selectedCrab()" id="selectCrab">Cibler Crabox</button>
                 <div class="damageAnim" id="dmgOnCrab"></div>
             </div>
             <div class="spritesMons" id="spriteFish">
-                <button onclick="selectedFish()" id="selectFish" disabled>Cibler Piranhaxx</button>
+                <button onclick="selectedFish()" id="selectFish">Cibler Piranhaxx</button>
                 <div class="damageAnim" id="dmgOnFish"></div>
             </div>
         </div>   

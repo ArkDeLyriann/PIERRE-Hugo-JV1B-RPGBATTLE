@@ -3,6 +3,7 @@ let pvPoulpe = document.getElementById("pvPoulpe")
 let pvCrabe = document.getElementById("pvCrabe")
 let pvFish = document.getElementById("pvFish")
 var crabox = document.getElementById("spriteCrab")
+var cible = 0
 
 
 //Variables des stats des Heros
@@ -57,20 +58,82 @@ var tourHeros = 0;
 var finDuJeu = false;
 const i=0;
 
+//Fonctions de désactivation et réactivation des boutons
 
+//Désactiver les héros hors de leurs tours.
+function desactiverRaph(){
+  document.getElementById("atkRaph").disabled = true;
+  document.getElementById("defRaph").disabled = true;
+  document.getElementById("magieRaph").disabled = true;
+}
+
+function desactiverLeo(){
+  document.getElementById("atkLeo").disabled = true;
+  document.getElementById("defLeo").disabled = true;
+  document.getElementById("magieLeo").disabled = true;
+}
+
+function desactiverDona(){
+  document.getElementById("atkDona").disabled = true;
+  document.getElementById("defDona").disabled = true;
+  document.getElementById("magieDona").disabled = true;
+}
+
+function desactiverMichel(){
+  document.getElementById("atkMichel").disabled = true;
+  document.getElementById("defMichel").disabled = true;
+  document.getElementById("magieMichel").disabled = true;
+}
+
+
+//Réactiver les héros à leur tours.
+function activerRaph(){
+  document.getElementById("atkRaph").disabled = false;
+  document.getElementById("defRaph").disabled = false;
+  document.getElementById("magieRaph").disabled = false;
+}
+
+function activerLeo(){
+  document.getElementById("atkLeo").disabled = false;
+  document.getElementById("defLeo").disabled = false;
+  document.getElementById("magieLeo").disabled = false;
+}
+
+function activerDona(){
+  document.getElementById("atkDona").disabled = false;
+  document.getElementById("defDona").disabled = false;
+  document.getElementById("magieDona").disabled = false;
+}
+
+function activerMichel(){
+  document.getElementById("atkMichel").disabled = false;
+  document.getElementById("defMichel").disabled = false;
+  document.getElementById("magieMichel").disabled = false;
+}
+
+//Focntions des compétences de Raphael
 function defRaphael(){
   defRaph = true;
 
 }
 
+
 function atkRaphael(){
-  pvPoulpe.value -= 10;
-  pvCrabe.value -= 10;
-  damageOnCrab();
-  adocument.getElementById("atkRaph").disabled = true;
-  
-    
+  if(cible==1){
+    damageOnPoulpe();
+  }
+  if(cible==2){
+    damageOnCrab();
+  }
+  if(cible==3){
+    damageOnFish();
+  }
+  desactiverRaph();
+  activerLeo();
+  tour += 1;
 }
+
+
 
 function magieRaphael(){
   if (manaRaph.value>=10){
@@ -100,6 +163,12 @@ function atkDonatello(){
   
   damageOnPoulpe();
   
+}
+
+
+//Fonctions pour la séléction de la cible
+function selectedPoulpe(){
+  cible=1
 }
 
 
