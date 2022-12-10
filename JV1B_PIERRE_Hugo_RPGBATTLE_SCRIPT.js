@@ -39,8 +39,6 @@ var imagePoulpe = document.getElementById("spritePoulpe");
 var imageCrabe = document.getElementById("spriteCrabe");
 var imageFish = document.getElementById("spriteFish");
 
-imageCrabe.style.visibility="visible";
-
 
 
 //Variables des animations de dégats sur les monstres
