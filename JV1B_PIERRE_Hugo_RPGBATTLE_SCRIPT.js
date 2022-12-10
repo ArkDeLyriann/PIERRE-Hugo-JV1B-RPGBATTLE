@@ -1,16 +1,19 @@
 //Variables des stats des Monstres
-let pvPoulpe = document.getElementById("pvPoulpe")
-let pvCrabe = document.getElementById("pvCrabe")
-let pvFish = document.getElementById("pvFish")
-var crabox = document.getElementById("spriteCrab")
-var cible = 0
-var cibleRiposte = 0
+let pvPoulpe = document.getElementById("pvPoulpe");
+let pvCrabe = document.getElementById("pvCrabe");
+let pvFish = document.getElementById("pvFish");
+var crabox = document.getElementById("spriteCrab");
+var cible = 0;
+var cibleRiposte = 0;
 
 
 //Variables des stats des Heros
-let manaRaph = document.getElementById("pmRaph")
-let pvRaph = document.getElementById("pvRaph")
-
+herosMorts = 0;
+let manaRaph = document.getElementById("pmRaph");
+let pvRaph = document.getElementById("pvRaph");
+let pvLeo = document.getElementById("pvLeo");
+let pvDona = document.getElementById("pvDona");
+let pvMichel = document.getElementById("pvMichel");
 
 //Variables utilisée dans l'animation Idle
 var animationInterval;
@@ -20,6 +23,12 @@ var spriteSheetDona = document.getElementById("spritePurple");
 var spriteSheetMichel = document.getElementById("spriteOrange");
 var widthSpriteSheetIdle = 400;
 var widthSpriteIdle = 200;
+
+//Variables pour faire disparaitres les monstres
+var boiteRaph = document.getElementById("boiteRaphael");
+var boiteLeo = document.getElementById("boiteLeonardo");
+var boiteDona = document.getElementById("boiteDonatello");
+var boiteMichel = document.getElementById("boiteMichelangelo");
 
 
 //Variables des animations de dégats sur les monstres
@@ -283,16 +292,44 @@ function selectedPoulpe(){
   desactiverFish();
   desactiverPoulpe();
   if (tourRaphFini==false & tourLeoFini==false & tourDonaFini==false & tourMichelFini==false){  //vérification de quelle tortue à déja joué pour activer la suivante dans le tour
-    activerRaph();
+    if(pvRaph.value>0){                                                                         // si la tortue est encore vivante, alors c'est son tour
+      activerRaph();
+    }
+    else{
+      tourRaphFini=true;                                                                        // sinon on passe à la tortue suivante, en incrémentant quand même le compteur de tours
+      tour += 1;
+      activerLeo();
+    }
   }
   if (tourRaphFini==true & tourLeoFini==false & tourDonaFini==false & tourMichelFini==false){
-    activerLeo();
+    if(pvLeo.value>0){
+      activerLeo();
+    }
+    else{
+      tourLeoFini=true;
+      activerDona();
+      tour+=1;
+    }
+
   }
   if (tourRaphFini==true & tourLeoFini==true & tourDonaFini==false & tourMichelFini==false){
-    activerDona();
+    if(pvDona.value>0){
+      activerDona();
+    }
+    else{
+      tourDonaFini=true;
+      activerMichel();
+      tour +=1;
+    }
   }
   if (tourRaphFini==true & tourLeoFini==true & tourDonaFini==true & tourMichelFini==false){
-    activerMichel();
+    if(pvMichel.value>0){
+      activerMichel();
+    }
+    else{
+      tourRaphFini=true;
+      tour +=1;
+    }
   }
   
 
@@ -347,14 +384,21 @@ function ciblageRiposte(){
 //Attaque du poulpe et ses conditions 
 function atkPoulpe(){
   var ripostePoulpe = false;
-  while (ripostePoulpe=false){        //tant que le poulpe n'as pas riposté on fait tourner la boucle
+  while (ripostePoulpe==false){        //tant que le poulpe n'as pas riposté on fait tourner la boucle
     if(cibleRiposte==1){
       if(pvRaph.value>0){
-        damageOnRaphael();
-        pvRaph.value -= 10;
-        cibleRiposte=0;
-        tour+=1;
-        ripostePoulpe=true;
+        if(defRaph==false){
+          damageOnRaphael();
+          pvRaph.value -= 10;
+          cibleRiposte=0;
+          tour+=1;
+          ripostePoulpe=true;
+        }
+        else{
+          ripostePoulpe=true;
+          ciblageRiposte=0;
+          tour+=1;
+        }
       }
       else{                //Si la cibles est déja morte on en choisi une nouvelle
         ciblageRiposte()
@@ -401,7 +445,7 @@ function atkPoulpe(){
 
 function atkCrabe(){
   var riposteCrabe = false;
-  while (riposteCrabe=false){        //tant que le Crabe n'as pas riposté on fait tourner la boucle
+  while (riposteCrabe==false){        //tant que le Crabe n'as pas riposté on fait tourner la boucle
     if(cibleRiposte==1){
       if(pvRaph.value>0){
         damageOnRaphael();
@@ -455,7 +499,7 @@ function atkCrabe(){
 
 function atkFish(){
   var riposteFish = false;
-  while (riposteFish=false){        //tant que le poisson n'as pas riposté on fait tourner la boucle
+  while (riposteFish==false){        //tant que le poisson n'as pas riposté on fait tourner la boucle
     if(cibleRiposte==1){
       if(pvRaph.value>0){
         damageOnRaphael();
@@ -504,6 +548,30 @@ function atkFish(){
         ciblageRiposte();
       }
     }
+  }
+}
+
+//Fonction qui vérifie si les tortues sont mortes
+function verifMortsHeros(){
+  if(pvRaph.value<=0){
+    spriteSheetRaph.style.visibility ="hidden";
+    boiteRaph.style.visibility="hidden";
+    herosMorts +=1;
+  }
+  if(pvLeo.value<=0){
+    spriteSheetLeo.style.visibility ="hidden";
+    boiteLeo.style.visibility="hidden";
+    herosMorts +=1;
+  }
+  if(pvDona.value<=0){
+    spriteSheetDona.style.visibility ="hidden";
+    boiteDona.style.visibility="hidden";
+    herosMorts +=1;
+  }
+  if(pvMichel.value<=0){
+    spriteSheetMichel.style.visibility ="hidden";
+    boiteMichel.style.visibility="hidden";
+    herosMorts +=1;
   }
 }
 
@@ -775,8 +843,22 @@ function damageOnMichel(){
 // faire disparaitres des sprites des entités mortes
 // Créer la obucle de jeu avec le calcul des tours et les conditions de victoire/défaite
 
+//Boucle principale de jeu
 
+while(finDuJeu==false){
+  if (tour==4){
+    ciblageRiposte();
+    atkPoulpe();
+    verifMortsHeros();
+    ciblageRiposte();
+    atkCrabe();
+    verifMortsHeros();
+    ciblageRiposte();
+    atkFish();
+    verifMortsHeros();
+  }
 
+}
 
 
 
@@ -797,5 +879,6 @@ function damageOnMichel(){
 
 
 IdleAnimation(); //Démarre l'Idle des tortues
+
 
 
