@@ -385,9 +385,9 @@ function ciblageRiposte(){
 function atkPoulpe(){
   var ripostePoulpe = false;
   while (ripostePoulpe==false){        //tant que le poulpe n'as pas riposté on fait tourner la boucle
-    if(cibleRiposte==1){
-      if(pvRaph.value>0){
-        if(defRaph==false){
+    if(cibleRiposte==1){              // qui est la cible ?
+      if(pvRaph.value>0){              //La cible est elle vivante
+        if(defRaph==false){            // la cible à-t-elle utilisée la compétence de défense au tour précédent
           damageOnRaphael();
           pvRaph.value -= 10;
           cibleRiposte=0;
@@ -406,11 +406,18 @@ function atkPoulpe(){
     }
     if(cibleRiposte==2){
       if(pvLeo.value>0){
-        damageOnLeo();
-        pvCrabe.value -= 10;
-        cibleRiposte=0;
-        tour+=1;
-        ripostePoulpe = true;
+        if(defLeo==false){
+          damageOnLeo();
+          pvCrabe.value -= 10;
+          cibleRiposte=0;
+          tour+=1;
+          ripostePoulpe = true;
+        }
+        else{
+          cibleRiposte=0;
+          tour+=1;
+          ripostePoulpe = true;
+        }
       }
       else{
         ciblageRiposte();
@@ -418,11 +425,18 @@ function atkPoulpe(){
     }
     if(cibleRiposte==3){
       if(pvDona.value>0){
-        damageOnDona();
-        pvFish.value -= 10;
-        cibleRiposte=0;
-        tour +=1;
-        ripostePoulpe=true;
+        if(defDona==false){
+          damageOnDona();
+          pvFish.value -= 10;
+          cibleRiposte=0;
+          tour +=1;
+          ripostePoulpe=true;
+        }
+        else{
+          cibleRiposte=0;
+          tour+=1;
+          ripostePoulpe = true;
+        }
       }
       else{
         ciblageRiposte();
@@ -430,11 +444,18 @@ function atkPoulpe(){
     }
     if(cibleRiposte==4){
       if(pvMichel.value>0){
-        damageOnFish();
-        pvFish.value -= 10;
-        cibleRiposte=0;
-        tour +=1;
-        ripostePoulpe=true;
+        if(defMichel==false){  
+          damageOnFish();
+          pvFish.value -= 10;
+          cibleRiposte=0;
+          tour +=1;
+          ripostePoulpe=true;
+        }
+        else{
+          cibleRiposte=0;
+          tour+=1;
+          ripostePoulpe = true;
+        }
       }
       else{
         ciblageRiposte();
@@ -443,28 +464,42 @@ function atkPoulpe(){
   }
 }
 
-function atkCrabe(){
+function atkCrabe(){                                       //Exactement la même fonction mais pour le crabe.
   var riposteCrabe = false;
-  while (riposteCrabe==false){        //tant que le Crabe n'as pas riposté on fait tourner la boucle
+  while (riposteCrabe==false){        
     if(cibleRiposte==1){
       if(pvRaph.value>0){
-        damageOnRaphael();
-        pvRaph.value -= 10;
-        cibleRiposte=0;
-        tour+=1;
-        riposteCrabe=true;
+        if(defRaph==false){
+          damageOnRaphael();
+          pvRaph.value -= 10;
+          cibleRiposte=0;
+          tour+=1;
+          riposteCrabe=true;
+        }
+        else{
+          cibleRiposte=0;
+          tour +=1;
+          riposteCrabe = true;
+        }
       }
-      else{                //Si la cibles est déja morte on en choisi une nouvelle
+      else{                
         ciblageRiposte()
       }
     }
     if(cibleRiposte==2){
       if(pvLeo.value>0){
-        damageOnLeo();
-        pvCrabe.value -= 10;
-        cibleRiposte=0;
-        tour+=1;
-        riposteCrabe = true;
+        if(defLeo==false){
+          damageOnLeo();
+          pvCrabe.value -= 10;
+          cibleRiposte=0;
+          tour+=1;
+          riposteCrabe = true;
+        }
+        else{
+          cibleRiposte=0;
+          tour +=1;
+          riposteCrabe = true;
+        }
       }
       else{
         ciblageRiposte();
@@ -472,11 +507,18 @@ function atkCrabe(){
     }
     if(cibleRiposte==3){
       if(pvDona.value>0){
-        damageOnDona();
-        pvFish.value -= 10;
-        cibleRiposte=0;
-        tour +=1;
-        riposteCrabe=true;
+        if(defDona==false){
+          damageOnDona();
+          pvFish.value -= 10;
+          cibleRiposte=0;
+          tour +=1;
+          riposteCrabe=true;
+        }
+        else{
+          cibleRiposte=0;
+          tour +=1;
+          riposteCrabe = true;
+        }
       }
       else{
         ciblageRiposte();
@@ -484,11 +526,18 @@ function atkCrabe(){
     }
     if(cibleRiposte==4){
       if(pvMichel.value>0){
-        damageOnFish();
-        pvFish.value -= 10;
-        cibleRiposte=0;
-        tour +=1;
-        riposteCrabe=true;
+        if(defMichel==false){
+          damageOnFish();
+          pvFish.value -= 10;
+          cibleRiposte=0;
+          tour +=1;
+          riposteCrabe=true;
+        }
+        else{
+          cibleRiposte=0;
+          tour +=1;
+          riposteCrabe = true;
+        }
       }
       else{
         ciblageRiposte();
@@ -497,28 +546,42 @@ function atkCrabe(){
   }
 }
 
-function atkFish(){
+function atkFish(){                       //Exactement la même fonction mais pour le Poisson
   var riposteFish = false;
-  while (riposteFish==false){        //tant que le poisson n'as pas riposté on fait tourner la boucle
+  while (riposteFish==false){        
     if(cibleRiposte==1){
       if(pvRaph.value>0){
-        damageOnRaphael();
-        pvRaph.value -= 10;
-        cibleRiposte=0;
-        tour+=1;
-        riposteFish=true;
+        if(defRaph==false){
+          damageOnRaphael();
+          pvRaph.value -= 10;
+          cibleRiposte=0;
+          tour+=1;
+          riposteFish=true;
+        }
+        else{
+          cibleRiposte=0;
+          tour+=1;
+          riposteFish=true;
+        }
       }
-      else{                //Si la cibles est déja morte on en choisi une nouvelle
+      else{                
         ciblageRiposte()
       }
     }
     if(cibleRiposte==2){
       if(pvLeo.value>0){
-        damageOnLeo();
-        pvCrabe.value -= 10;
-        cibleRiposte=0;
-        tour+=1;
-        riposteFish = true;
+        if(defLeo==false){
+          damageOnLeo();
+          pvCrabe.value -= 10;
+          cibleRiposte=0;
+          tour+=1;
+          riposteFish = true;
+        }
+        else{
+          cibleRiposte=0;
+          tour+=1;
+          riposteFish=true;
+        }
       }
       else{
         ciblageRiposte();
@@ -526,11 +589,18 @@ function atkFish(){
     }
     if(cibleRiposte==3){
       if(pvDona.value>0){
-        damageOnDona();
-        pvFish.value -= 10;
-        cibleRiposte=0;
-        tour +=1;
-        riposteFish=true;
+        if(defLeo==false){
+          damageOnDona();
+          pvFish.value -= 10;
+          cibleRiposte=0;
+          tour +=1;
+          riposteFish=true;
+        }
+        else{
+          cibleRiposte=0;
+          tour+=1;
+          riposteFish=true;
+        }
       }
       else{
         ciblageRiposte();
@@ -538,11 +608,18 @@ function atkFish(){
     }
     if(cibleRiposte==4){
       if(pvMichel.value>0){
-        damageOnMichel();
-        pvFish.value -= 10;
-        cibleRiposte=0;
-        tour +=1;
-        riposteFish=true;
+        if(defMichel==false){
+          damageOnMichel();
+          pvFish.value -= 10;
+          cibleRiposte=0;
+          tour +=1;
+          riposteFish=true;
+        }
+        else{
+          cibleRiposte=0;
+          tour+=1;
+          riposteFish=true;
+        }
       }
       else{
         ciblageRiposte();
