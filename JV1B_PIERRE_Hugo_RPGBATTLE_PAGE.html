@@ -96,46 +96,43 @@
         </div>
 
         <div class="spriteBoxMon">
-            <div class="spritesmons" id ="spritePoulpe">
+            <div class="spritesMons" id ="spritePoulpe">
                 <button onclick="selectedPoulpe()" id="selectPoulpe">Cibler Poulpor</button>
+                <span class="boiteMon" id="boitePoulpe">
+                    <div id="pvPoulpeTXT">Vie de Poulpor:</div>
+                    <progress id="pvPoulpe" value="100" max="100"></progress>
+                </span>
                 <div class="damageAnim" id="dmgOnPoulpe"></div>
             </div>
             <div class="spritesMons" id="spriteCrabe">
                 <button onclick="selectedCrab()" id="selectCrab">Cibler Crabox</button>
+                <span class="boiteMon" id="boiteCrab">
+                    <div id="pvCrabTXT">Vie de Crabox:</div>
+                    <progress id="pvCrabe" value="200" max="200"></progress>
+                </span>
                 <div class="damageAnim" id="dmgOnCrab"></div>
             </div>
             <div class="spritesMons" id="spriteFish">
                 <button onclick="selectedFish()" id="selectFish">Cibler Piranhaxx</button>
+                <span class="boiteMon" id="boiteFish">
+                    <div id="pvFishTXT">Vie de Piranhaxx:</div>
+                    <progress id="pvFish" value="100" max="100"></progress>                        
+                </span>
                 <div class="damageAnim" id="dmgOnFish"></div>
             </div>
         </div>   
         
         <div class="monstres">    
             <div class="boiteaboite">
-                <div class="mon" id="Poulpe">Poulpor le monstre
-                    <span class="boiteMon" id="boitePoulpe">
-                        <div id="pvPoulpeTXT">Vie de Poulpor:</div>
-                        <progress id="pvPoulpe" value="100" max="100"></progress>
-                    </span>
-                </div>    
+                <div class="mon" id="Poulpe">Poulpor le monstre</div>    
             </div>
 
             <div class="boiteaboite">
-                <div class="mon" id="Crabe">Crabox le monstre
-                    <span class="boiteMon" id="boiteCrab">
-                        <div id="pvCrabTXT">Vie de Crabox:</div>
-                        <progress id="pvCrabe" value="200" max="200"></progress>
-                    </span>
-                </div>    
+                <div class="mon" id="Crabe">Crabox le monstre</div>    
             </div>
             
             <div class="boiteaboite">
-                <div class="mon" id="Fish">Piranhaxx le monstre
-                    <span class="boiteMon" id="boiteFish">
-                        <div id="pvFishTXT">Vie de Piranhaxx:</div>
-                        <progress id="pvFish" value="100" max="100"></progress>                        
-                    </span>
-                </div>
+                <div class="mon" id="Fish">Piranhaxx le monstre</div>
             </div>
             
         </div>

@@ -141,6 +141,7 @@ body{
 }
 
 #spriteCrab{
+    visibility: visible;
     background: url("assets/CRAB.png");
     height: 500px;
     width: 500px;
@@ -150,7 +151,6 @@ body{
     background: url("assets/poulpe.png");
     height: 500px;
     width: 500px;
-    justify-content: center;
 }
 
 #spriteFish{
@@ -179,7 +179,7 @@ body{
 }
 
 
-.mon .boiteMon{
+.spritesMons .boiteMon{
     visibility: hidden;
     width: 120px;
     background-color: black;
@@ -204,6 +204,6 @@ body{
     width: 120px;
 }
 
-.mon:hover .boiteMon {
+.spritesMons:hover .boiteMon {
     visibility: visible;
 }
