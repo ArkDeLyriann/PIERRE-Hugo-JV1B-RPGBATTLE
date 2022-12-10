@@ -141,7 +141,6 @@ body{
 }
 
 #spriteCrab{
-    visibility: visible;
     background: url("assets/CRAB.png");
     height: 500px;
     width: 500px;

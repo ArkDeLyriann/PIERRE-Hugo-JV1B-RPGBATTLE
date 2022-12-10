@@ -183,7 +183,7 @@ function defRaphael(){
 function atkRaphael(){
   if(cible==1){
     damageOnPoulpe();                 //verification de la cible choisie
-    pvPoulpe.value -= 10;
+    pvPoulpe.value -= 80;
   }
   if(cible==2){
     damageOnCrab();
@@ -216,7 +216,6 @@ function atkLeonardo(){
     damageOnFish();
     pvFish.value -= 10;
   }
-  verifMortsMonstres();
   desactiverLeo();
   tour += 1;
   cible = 0;
@@ -224,6 +223,7 @@ function atkLeonardo(){
   activerCrabe();
   activerFish();
   activerPoulpe();
+  verifMortsMonstres();
 }
 
 function atkDonatello(){
@@ -239,7 +239,7 @@ function atkDonatello(){
     damageOnFish();
     pvFish.value -= 10;
   }
-  verifMortsMonstres();
+  
   desactiverDona();
   tour += 1;
   cible = 0;
@@ -247,6 +247,7 @@ function atkDonatello(){
   activerCrabe();
   activerFish();
   activerPoulpe();
+  setTimeout(verifMortsMonstres(),{}, 1000);
 }
 
 function atkMichelangelo(){
@@ -267,6 +268,7 @@ function atkMichelangelo(){
   tour += 1;
   cible = 0;
   tourMichelFini = true;
+  riposte();
 }
 
 
@@ -677,7 +679,7 @@ function verifMortsHeros(){
 
 function verifMortsMonstres(){
   if(pvPoulpe.value<=0){
-    imagePoulpe.style.visibility ="hidden";
+    imagePoulpe.style.visibility="hidden";
     boitePoulpe.style.visibility="hidden";
     monstresMorts +=1;
   }
@@ -687,7 +689,7 @@ function verifMortsMonstres(){
     monstresMorts +=1;
   }
   if(pvFish.value<=0){
-    imageFish.style.visibility ="hidden";
+    imageFish.style.visibility="hidden";
     boiteFish.style.visibility="hidden";
     monstresMorts +=1;
   }
@@ -719,6 +721,8 @@ function IdleAnimation() {
     //remettre la position a zéro
   }, speed);
 }
+
+IdleAnimation(); //Démarre l'Idle des tortues
 
 
 
@@ -953,38 +957,37 @@ function damageOnMichel(){
   }, dmgSpeed);
 }
 
-IdleAnimation(); //Démarre l'Idle des tortues
 
 
 
 
-//Boucle principale de jeu
 
-while(finDuJeu==false){
-  tour = 0
-  
-  if (tour==4){
-    ciblageRiposte();
-    atkPoulpe();
-    verifMortsHeros();
-    ciblageRiposte();
-    atkCrabe();
-    verifMortsHeros();
-    ciblageRiposte();
-    atkFish();
-    verifMortsHeros();
-  }
+//Fonction de riposte globale elle se déclenche à la fin du tour de la quatrième tortue (Michelangelo) et remet le tour à 0 et vérifie si toutes les tortues ou tous les adversaires sont morts.
+function riposte(){  
 
-  if (tour==7){
-    activerRaph();
-  }
+  ciblageRiposte();
+  atkPoulpe();
+  verifMortsHeros();
+  ciblageRiposte();
+  atkCrabe();
+  verifMortsHeros();
+  ciblageRiposte();
+  atkFish();
+  verifMortsHeros();
+  tourRaphFini=false;
+  tourLeoFini=false;
+  tourDonaFini=false;
+  tourMichelFini=false;
+  activerFish();
+  activerCrabe();
+  activerPoulpe();
 
   if(herosMorts==4){
-    finDuJeu=true;
+      finDuJeu=true;
   }
 
   if(monstresMorts==3){
-    finDuJeu=true;
+      finDuJeu=true;
   }
 
 
