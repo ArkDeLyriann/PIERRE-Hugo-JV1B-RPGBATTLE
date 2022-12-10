@@ -14,10 +14,10 @@ let pvRaph = document.getElementById("pvRaph")
 
 //Variables utilisée dans l'animation Idle
 var animationInterval;
-var spriteSheetGreen = document.getElementById("spriteGreen");
-var spriteSheetBlue = document.getElementById("spriteBlue");
-var spriteSheetPurple = document.getElementById("spritePurple");
-var spriteSheetOrange = document.getElementById("spriteOrange");
+var spriteSheetRaph = document.getElementById("spriteGreen");
+var spriteSheetLeo = document.getElementById("spriteBlue");
+var spriteSheetDona = document.getElementById("spritePurple");
+var spriteSheetMichel = document.getElementById("spriteOrange");
 var widthSpriteSheetIdle = 400;
 var widthSpriteIdle = 200;
 
@@ -517,10 +517,10 @@ function IdleAnimation() {
   ; //largeur des sprites
 
   animationInterval = setInterval(() => {
-    spriteSheetGreen.style.backgroundPosition = `-${position}px 0px`;
-    spriteSheetBlue.style.backgroundPosition = `-${position}px 0px`;
-    spriteSheetPurple.style.backgroundPosition = `-${position}px 0px`;
-    spriteSheetOrange.style.backgroundPosition = `-${position}px 0px`;
+    spriteSheetRaph.style.backgroundPosition = `-${position}px 0px`;
+    spriteSheetLeo.style.backgroundPosition = `-${position}px 0px`;
+    spriteSheetDona.style.backgroundPosition = `-${position}px 0px`;
+    spriteSheetMichel.style.backgroundPosition = `-${position}px 0px`;
 
     if (position < widthSpriteSheetIdle
     ) {
@@ -771,9 +771,8 @@ function damageOnMichel(){
 
 
 //A FAIRE 
-// Programmer la riposte des monstres
 // Finir de programmer les options d'attaques spéciales pour tous les héros et leur défenses
-//faire disparaitres des sprites des entités mortes
+// faire disparaitres des sprites des entités mortes
 // Créer la obucle de jeu avec le calcul des tours et les conditions de victoire/défaite
 
 
