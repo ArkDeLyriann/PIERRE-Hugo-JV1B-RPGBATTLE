@@ -4,10 +4,12 @@ let pvCrabe = document.getElementById("pvCrabe")
 let pvFish = document.getElementById("pvFish")
 var crabox = document.getElementById("spriteCrab")
 var cible = 0
+var cibleRiposte = 0
 
 
 //Variables des stats des Heros
 let manaRaph = document.getElementById("pmRaph")
+let pvRaph = document.getElementById("pvRaph")
 
 
 //Variables utilisée dans l'animation Idle
@@ -33,6 +35,9 @@ var nombreBoucle = 0;
 
 //Variabkes des animations de dégats sur les héros
 var damageSurRaphael = document.getElementById("dmgOnRaphael");
+var damageSurLeo = document.getElementById("dmgOnLeo");
+var damageSurDona = document.getElementById("dmgOnDona");
+var damageSurMichel = document.getElementById("dmgOnMichel");
 var widthSpriteDmgEnnemy = 200;
 var heighSpriteDmgEnnemy = 200;
 var widthSpriteSheetDmgEnnemy = 800;
@@ -277,7 +282,7 @@ function selectedPoulpe(){
   desactiverCrabe();
   desactiverFish();
   desactiverPoulpe();
-  if (tourRaphFini==false & tourLeoFini==false & tourDonaFini==false & tourMichelFini==false){
+  if (tourRaphFini==false & tourLeoFini==false & tourDonaFini==false & tourMichelFini==false){  //vérification de quelle tortue à déja joué pour activer la suivante dans le tour
     activerRaph();
   }
   if (tourRaphFini==true & tourLeoFini==false & tourDonaFini==false & tourMichelFini==false){
@@ -333,7 +338,174 @@ function selectedFish(){
 
 }
 
+//Fonctions pour la riposte des monstres
+//Selecteur de cible pour la riposte
+function ciblageRiposte(){
+  cibleRiposte = Math.floor(Math.random() * 4)+1;
+}
 
+//Attaque du poulpe et ses conditions 
+function atkPoulpe(){
+  var ripostePoulpe = false;
+  while (ripostePoulpe=false){        //tant que le poulpe n'as pas riposté on fait tourner la boucle
+    if(cibleRiposte==1){
+      if(pvRaph.value>0){
+        damageOnRaphael();
+        pvRaph.value -= 10;
+        cibleRiposte=0;
+        tour+=1;
+        ripostePoulpe=true;
+      }
+      else{                //Si la cibles est déja morte on en choisi une nouvelle
+        ciblageRiposte()
+      }
+    }
+    if(cibleRiposte==2){
+      if(pvLeo.value>0){
+        damageOnLeo();
+        pvCrabe.value -= 10;
+        cibleRiposte=0;
+        tour+=1;
+        ripostePoulpe = true;
+      }
+      else{
+        ciblageRiposte();
+      }
+    }
+    if(cibleRiposte==3){
+      if(pvDona.value>0){
+        damageOnDona();
+        pvFish.value -= 10;
+        cibleRiposte=0;
+        tour +=1;
+        ripostePoulpe=true;
+      }
+      else{
+        ciblageRiposte();
+      }
+    }
+    if(cibleRiposte==4){
+      if(pvMichel.value>0){
+        damageOnFish();
+        pvFish.value -= 10;
+        cibleRiposte=0;
+        tour +=1;
+        ripostePoulpe=true;
+      }
+      else{
+        ciblageRiposte();
+      }
+    }
+  }
+}
+
+function atkCrabe(){
+  var riposteCrabe = false;
+  while (riposteCrabe=false){        //tant que le Crabe n'as pas riposté on fait tourner la boucle
+    if(cibleRiposte==1){
+      if(pvRaph.value>0){
+        damageOnRaphael();
+        pvRaph.value -= 10;
+        cibleRiposte=0;
+        tour+=1;
+        riposteCrabe=true;
+      }
+      else{                //Si la cibles est déja morte on en choisi une nouvelle
+        ciblageRiposte()
+      }
+    }
+    if(cibleRiposte==2){
+      if(pvLeo.value>0){
+        damageOnLeo();
+        pvCrabe.value -= 10;
+        cibleRiposte=0;
+        tour+=1;
+        riposteCrabe = true;
+      }
+      else{
+        ciblageRiposte();
+      }
+    }
+    if(cibleRiposte==3){
+      if(pvDona.value>0){
+        damageOnDona();
+        pvFish.value -= 10;
+        cibleRiposte=0;
+        tour +=1;
+        riposteCrabe=true;
+      }
+      else{
+        ciblageRiposte();
+      }
+    }
+    if(cibleRiposte==4){
+      if(pvMichel.value>0){
+        damageOnFish();
+        pvFish.value -= 10;
+        cibleRiposte=0;
+        tour +=1;
+        riposteCrabe=true;
+      }
+      else{
+        ciblageRiposte();
+      }
+    }
+  }
+}
+
+function atkFish(){
+  var riposteFish = false;
+  while (riposteFish=false){        //tant que le poisson n'as pas riposté on fait tourner la boucle
+    if(cibleRiposte==1){
+      if(pvRaph.value>0){
+        damageOnRaphael();
+        pvRaph.value -= 10;
+        cibleRiposte=0;
+        tour+=1;
+        riposteFish=true;
+      }
+      else{                //Si la cibles est déja morte on en choisi une nouvelle
+        ciblageRiposte()
+      }
+    }
+    if(cibleRiposte==2){
+      if(pvLeo.value>0){
+        damageOnLeo();
+        pvCrabe.value -= 10;
+        cibleRiposte=0;
+        tour+=1;
+        riposteFish = true;
+      }
+      else{
+        ciblageRiposte();
+      }
+    }
+    if(cibleRiposte==3){
+      if(pvDona.value>0){
+        damageOnDona();
+        pvFish.value -= 10;
+        cibleRiposte=0;
+        tour +=1;
+        riposteFish=true;
+      }
+      else{
+        ciblageRiposte();
+      }
+    }
+    if(cibleRiposte==4){
+      if(pvMichel.value>0){
+        damageOnMichel();
+        pvFish.value -= 10;
+        cibleRiposte=0;
+        tour +=1;
+        riposteFish=true;
+      }
+      else{
+        ciblageRiposte();
+      }
+    }
+  }
+}
 
 
 ////Fonction pour l'Idle animation des tortues
@@ -499,6 +671,101 @@ function damageOnRaphael(){
   }, dmgSpeed);
 }
 
+function damageOnLeo(){
+  var vertical = widthSpriteDmgEnnemy; //position de départ de l'image
+  var horizontal = heighSpriteDmgEnnemy;
+  const dmgSpeed = 100; //en millisecondes
+  const horDiff = widthSpriteDmgEnnemy; //largeur des sprites
+  const verDiff = heighSpriteDmgEnnemy;
+  
+  
+
+  intervale = setInterval(() => {
+    damageSurLeo.style.backgroundPosition = `-${horizontal}px -${vertical}px`;
+
+    if (horizontal < widthSpriteSheetDmgEnnemy) {
+        horizontal = horizontal + horDiff;
+    
+    } 
+    else if (horizontal == widthSpriteSheetDmgEnnemy) {
+        vertical = vertical + verDiff;  
+        horizontal = widthSpriteDmgEnnemy;
+    }
+    else{
+      horizontal = widthSpriteDmgEnnemy;
+      vertical = heighSpriteDmgEnnemy;
+    }
+    nombreBoucle++
+    if(nombreBoucle == 10){
+    window.clearInterval(intervale);
+    nombreBoucle = 0
+    }
+  }, dmgSpeed);
+}
+
+function damageOnDona(){
+  var vertical = widthSpriteDmgEnnemy; //position de départ de l'image
+  var horizontal = heighSpriteDmgEnnemy;
+  const dmgSpeed = 100; //en millisecondes
+  const horDiff = widthSpriteDmgEnnemy; //largeur des sprites
+  const verDiff = heighSpriteDmgEnnemy;
+  
+  
+
+  intervale = setInterval(() => {
+    damageSurDona.style.backgroundPosition = `-${horizontal}px -${vertical}px`;
+
+    if (horizontal < widthSpriteSheetDmgEnnemy) {
+        horizontal = horizontal + horDiff;
+    
+    } 
+    else if (horizontal == widthSpriteSheetDmgEnnemy) {
+        vertical = vertical + verDiff;  
+        horizontal = widthSpriteDmgEnnemy;
+    }
+    else{
+      horizontal = widthSpriteDmgEnnemy;
+      vertical = heighSpriteDmgEnnemy;
+    }
+    nombreBoucle++
+    if(nombreBoucle == 10){
+    window.clearInterval(intervale);
+    nombreBoucle = 0
+    }
+  }, dmgSpeed);
+}
+
+function damageOnMichel(){
+  var vertical = widthSpriteDmgEnnemy; //position de départ de l'image
+  var horizontal = heighSpriteDmgEnnemy;
+  const dmgSpeed = 100; //en millisecondes
+  const horDiff = widthSpriteDmgEnnemy; //largeur des sprites
+  const verDiff = heighSpriteDmgEnnemy;
+  
+  
+
+  intervale = setInterval(() => {
+    damageSurMichel.style.backgroundPosition = `-${horizontal}px -${vertical}px`;
+
+    if (horizontal < widthSpriteSheetDmgEnnemy) {
+        horizontal = horizontal + horDiff;
+    
+    } 
+    else if (horizontal == widthSpriteSheetDmgEnnemy) {
+        vertical = vertical + verDiff;  
+        horizontal = widthSpriteDmgEnnemy;
+    }
+    else{
+      horizontal = widthSpriteDmgEnnemy;
+      vertical = heighSpriteDmgEnnemy;
+    }
+    nombreBoucle++
+    if(nombreBoucle == 10){
+    window.clearInterval(intervale);
+    nombreBoucle = 0
+    }
+  }, dmgSpeed);
+}
 
 
 
