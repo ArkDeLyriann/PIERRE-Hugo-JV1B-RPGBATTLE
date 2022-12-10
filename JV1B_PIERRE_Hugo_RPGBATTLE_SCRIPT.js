@@ -9,6 +9,8 @@
 
 
 
+
+
 //Variables des stats des Monstres
 let pvPoulpe = document.getElementById("pvPoulpe");
 let pvCrabe = document.getElementById("pvCrabe");
