@@ -1,3 +1,14 @@
+//L'entiereté de mon jeu fonctionne sur des boutons qui se renvoient les uns aux autres
+//Je n'ai pas eu le temps de mettre en places les différentes compétences pour les personnages, mais j'ai laissé mes pistes de recherches
+//le jeu n'as pas de fin non plus, je n'ai pas réussi à la mettre en place convenablement
+
+
+
+
+
+
+
+
 //Variables des stats des Monstres
 let pvPoulpe = document.getElementById("pvPoulpe");
 let pvCrabe = document.getElementById("pvCrabe");
