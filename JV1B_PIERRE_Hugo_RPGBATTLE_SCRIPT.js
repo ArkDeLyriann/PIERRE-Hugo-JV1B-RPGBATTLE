@@ -70,7 +70,7 @@ var defRaph=false;
 //Boutons
 const atkRaphButton = document.getElementById("atkRaphael");
 
-//Variable de compétence utilisée
+//Variable de compétence utilisée                           //auraient du êtres utilisés pour griser la compétence utilisée au prochain tour
 var lastCompRaph = 0;
 var lastCompDon = 0;
 var lastCompLeo = 0;
@@ -181,11 +181,45 @@ function defRaphael(){
 
 }
 
+function defLeonardo(){
+  defRaph = true;
+  desactiverLeo();
+  tour += 1;
+  cible = 0;
+  tourRLeoFini = true;
+  activerCrabe();
+  activerFish();
+  activerPoulpe();
+
+}
+
+function defDonatello(){
+  defRaph = true;
+  desactiverDona();
+  tour += 1;
+  cible = 0;
+  tourDonaFini = true;
+  activerCrabe();
+  activerFish();
+  activerPoulpe();
+
+}
+
+function defMichelangelo(){
+  defRaph = true;
+  desactiverMichel();
+  tour += 1;
+  cible = 0;
+  tourMichelFini = true;
+  riposte();
+
+}
+
 //Fonctions pour les attaques de base des héros.
 function atkRaphael(){
   if(cible==1){
     damageOnPoulpe();                 //verification de la cible choisie
-    pvPoulpe.value -= 80;
+    pvPoulpe.value -= 10;
   }
   if(cible==2){
     damageOnCrab();
@@ -274,7 +308,7 @@ function atkMichelangelo(){
 }
 
 
-//Fonctions pour les compétences spéciales des Héros W.I.P
+//Fonctions pour les compétences spéciales des Héros incomplet
 function magieRaphael(){
   if (manaRaph.value>=10){
     if(cible==1){
