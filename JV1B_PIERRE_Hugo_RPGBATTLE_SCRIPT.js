@@ -24,11 +24,20 @@ var spriteSheetMichel = document.getElementById("spriteOrange");
 var widthSpriteSheetIdle = 400;
 var widthSpriteIdle = 200;
 
-//Variables pour faire disparaitres les monstres
+//Variables pour faire disparaitres les morts
 var boiteRaph = document.getElementById("boiteRaphael");
 var boiteLeo = document.getElementById("boiteLeonardo");
 var boiteDona = document.getElementById("boiteDonatello");
 var boiteMichel = document.getElementById("boiteMichelangelo");
+
+var boitePoulpe = document.getElementById("Poulpe");
+var boiteCrabe = document.getElementById("Crabe");
+var boiteFish = document.getElementById("Fish");
+
+var imagePoulpe = document.getElementById("spritePoulpe");
+var imageCrabe = document.getElementById("spriteCrabe");
+var imageFish = document.getElementById("spriteFish");
+
 
 
 //Variables des animations de dégats sur les monstres
@@ -172,7 +181,7 @@ function defRaphael(){
 //Fonctions pour les attaques de base des héros.
 function atkRaphael(){
   if(cible==1){
-    damageOnPoulpe();
+    damageOnPoulpe();                 //verification de la cible choisie
     pvPoulpe.value -= 10;
   }
   if(cible==2){
@@ -183,11 +192,12 @@ function atkRaphael(){
     damageOnFish();
     pvFish.value -= 10;
   }
-  desactiverRaph();
-  tour += 1;
-  cible = 0;
-  tourRaphFini = true;
-  activerCrabe();
+  verifMortsMonstres();                   // verification de la mort de la cible
+  desactiverRaph();                       // rendre le personnage non jouable
+  tour += 1;                              // incrémentation du nombre de tours
+  cible = 0;                              // réinitialisation de la cible
+  tourRaphFini = true;                    // stockage de la fin du tour de raph
+  activerCrabe();                         // réactiver le choix du monstre
   activerFish();
   activerPoulpe();
 }
@@ -205,6 +215,7 @@ function atkLeonardo(){
     damageOnFish();
     pvFish.value -= 10;
   }
+  verifMortsMonstres();
   desactiverLeo();
   tour += 1;
   cible = 0;
@@ -227,6 +238,7 @@ function atkDonatello(){
     damageOnFish();
     pvFish.value -= 10;
   }
+  verifMortsMonstres();
   desactiverDona();
   tour += 1;
   cible = 0;
@@ -249,6 +261,7 @@ function atkMichelangelo(){
     damageOnFish();
     pvFish.value -= 10;
   }
+  verifMortsMonstres();
   desactiverMichel();
   tour += 1;
   cible = 0;
@@ -256,7 +269,7 @@ function atkMichelangelo(){
 }
 
 
-//Fonctions pour les compétences spéciales des Héros.
+//Fonctions pour les compétences spéciales des Héros W.I.P
 function magieRaphael(){
   if (manaRaph.value>=10){
     if(cible==1){
@@ -630,8 +643,8 @@ function atkFish(){                       //Exactement la même fonction mais po
 
 //Fonction qui vérifie si les tortues sont mortes
 function verifMortsHeros(){
-  if(pvRaph.value<=0){
-    spriteSheetRaph.style.visibility ="hidden";
+  if(pvRaph.value<=0){                            //vérification des pvs
+    spriteSheetRaph.style.visibility ="hidden";   // disparition des éléments qui indiquent que la tortue existe
     boiteRaph.style.visibility="hidden";
     herosMorts +=1;
   }
@@ -652,6 +665,26 @@ function verifMortsHeros(){
   }
 }
 
+//Fonction qui vérifie si les monstres sont morts
+
+function verifMortsMonstres(){
+  if(pvPoulpe.value<=0){
+    imagePoulpe.style.visibility ="hidden";
+    boitePoulpe.style.visibility="hidden";
+    monstresMorts +=1;
+  }
+  if(pvCrabe.value<=0){
+    imageCrabe.style.visibility ="hidden";
+    boiteCrabe.style.visibility="hidden";
+    monstresMorts +=1;
+  }
+  if(pvFish.value<=0){
+    imageFish.style.visibility ="hidden";
+    boiteFish.style.visibility="hidden";
+    monstresMorts +=1;
+  }
+}
+
 
 ////Fonction pour l'Idle animation des tortues
 function IdleAnimation() {
@@ -662,7 +695,7 @@ function IdleAnimation() {
   ; //largeur des sprites
 
   animationInterval = setInterval(() => {
-    spriteSheetRaph.style.backgroundPosition = `-${position}px 0px`;
+    spriteSheetRaph.style.backgroundPosition = `-${position}px 0px`;  //on déclare que la position du background est liée a une variable
     spriteSheetLeo.style.backgroundPosition = `-${position}px 0px`;
     spriteSheetDona.style.backgroundPosition = `-${position}px 0px`;
     spriteSheetMichel.style.backgroundPosition = `-${position}px 0px`;
@@ -671,7 +704,7 @@ function IdleAnimation() {
     ) {
       position = position + diff;
     } else {
-      //changer la position entre les deux sprites
+      //changer la position entre les deux sprites en changant la variable
       position = widthSpriteIdle
       ;
     }
@@ -912,13 +945,10 @@ function damageOnMichel(){
   }, dmgSpeed);
 }
 
+IdleAnimation(); //Démarre l'Idle des tortues
 
 
 
-//A FAIRE 
-// Finir de programmer les options d'attaques spéciales pour tous les héros et leur défenses
-// faire disparaitres des sprites des entités mortes
-// Créer la obucle de jeu avec le calcul des tours et les conditions de victoire/défaite
 
 //Boucle principale de jeu
 
@@ -934,6 +964,21 @@ while(finDuJeu==false){
     atkFish();
     verifMortsHeros();
   }
+
+
+  if(herosMorts==4){
+    finDuJeu=true;
+  }
+
+  if(monstresMorts==3){
+    finDuJeu=true;
+  }
+
+
+
+
+
+
 
 }
 
@@ -955,7 +1000,6 @@ while(finDuJeu==false){
 
 
 
-IdleAnimation(); //Démarre l'Idle des tortues
 
 
 
